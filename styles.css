@@ -673,7 +673,7 @@ strong {
   }
   
   #step-11 {
-    min-height: 65vh;
+    min-height: 60vh;
     padding-left: 47%;
   }
   
@@ -681,6 +681,16 @@ strong {
     min-height: 65vh;
     padding-left: 23%;
   }
+
+    .solution-section {
+    min-height: 80vh;
+  }
+  
+  .projection-section,
+  .final-cta {
+    min-height: 100vh;  /* Reduced from 150vh */
+  }
+  
   
   /* Final section */
   .final-two-columns {

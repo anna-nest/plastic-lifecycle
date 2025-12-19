@@ -299,15 +299,15 @@ strong {
   font-size: 3rem;
   font-weight: 700;
   font-family: 'League Spartan', 'Poppins', sans-serif;
-  color: #f5c16c;
+  color: #000000;
   opacity: 0;
     /* Stronger shadow on all sides */
   text-shadow: 
-    -2px -2px 4px rgba(0, 0, 0, 0.9),
-    2px -2px 4px rgba(0, 0, 0, 0.9),
-    -2px 2px 4px rgba(0, 0, 0, 0.9),
-    2px 2px 4px rgba(0, 0, 0, 0.9),
-    0 0 8px rgba(0, 0, 0, 0.8);
+    -2px -2px 4px rgba(255, 255, 255, 0.9),
+    2px -2px 4px rgba(255, 255, 255, 0.9),
+    -2px 2px 4px rgba(255, 255, 255, 0.9),
+    2px 2px 4px rgba(255, 255, 255, 0.9),
+    0 0 8px rgba(255, 255, 255, 0.8);
 }
 
 /* Initial horizontal positions */
@@ -452,7 +452,7 @@ strong {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 1rem 3rem;
-  background: #f5c16c;
+  background: #003c64;
   color: white;
   text-decoration: none;
   border-radius: 50px;

@@ -593,7 +593,7 @@ strong {
   
   .text-container-right {
     width: 100%;
-    padding: 5vh 0rem 5vh 2rem;
+    padding: 5vh 0.5rem 5vh 0.5rem;
   }
   
   .person-silhouette,

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Plastic Lifecycle | REUSE Foundation</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Plastic overlay - scrolls away -->
+  <div class="plastic-overlay" id="plastic-overlay">
+    <img src="assets/bubble-wrap.png" class="plastic-image" alt="">
+  </div>
+
+  <!-- ===== INTRO SECTION (Steps 0-1) ===== -->
+  <div class="intro-wrapper">
+    <!-- Sticky intro text (stays for 2 steps) -->
+    <div class="intro-text-sticky">
+      <p>Plastic is part of daily life.</p>
+      <p>Useful, cheap, everywhere.</p>
+      <p>But its scale is harder to grasp.</p>
+      <p><strong>How much plastic have we actually made?</strong></p>
+    </div>
+    
+    <div class="scroll-cue">
+      <div class="arrow">↓</div>
+      <p>Scroll to remove the plastic</p>
+    </div>
+    
+    <!-- STEP 0 -->
+    <section id="step-0" class="step intro-step"></section>
+    
+    <!-- STEP 1 -->
+    <section id="step-1" class="step intro-step"></section>
+  </div>
+
+  <!-- STEP 2: Production chart and text -->
+  <section id="step-2" class="step production-section">
+    <div class="content-wrapper-wide">
+      <div class="chart-placeholder">
+        Production Chart
+      </div>
+      <div class="text-content">
+        <h2>Plastic production has grown exponentially.</h2>
+        <p>Today we produce over 400 million tonnes every year.</p>
+        <p>Since mass production began in the 1950s, humanity has manufactured at least <strong>8.3 billion tonnes</strong> of plastic.</p>
+        <p>(And with current trends, that number is already outdated.)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HEAP SECTION (Steps 3-7) ===== -->
+  <div class="heap-wrapper">
+    <!-- Sticky heap image (stays for 5 steps) -->
+    <div class="heap-sticky">
+      <img src="assets/plastic-heap.png" class="plastic-heap" id="plastic-heap" alt="">
+    </div>
+    
+    <!-- STEP 3: Intro text -->
+    <section id="step-3" class="step heap-step">
+      <div class="text-container-right">
+        <h2>Let's break it down.</h2>
+        <p>There are around <strong>8 billion people</strong> on the planet.</p>
+        <p>If we shared the plastic evenly, each of us would "own" about <strong>one metric ton</strong>.</p>
+      </div>
+    </section>
+
+    <!-- STEP 4: Silhouette -->
+<section id="step-4" class="step heap-step">
+  <div class="text-container-right">
+    <p>A ton of loose plastic waste is roughly the volume of a <strong>small car</strong>.</p>
+    <h2>This is YOUR share of humanity's plastic.</h2>
+    <div class="person-silhouette"></div>
+  </div>
+</section>
+
+<!-- STEP 5: Bags -->
+<section id="step-5" class="step heap-step">
+  <div class="text-container-right">
+     <p>You could have</p>
+    <h2>100,000 shopping bags</h2>
+      <div class="comparison-visual">
+      <img src="assets/plastic-bag.png" alt="Plastic bag">
+    </div>
+  </div>
+</section>
+
+<!-- STEP 6: Bottles -->
+<section id="step-6" class="step heap-step">
+  <div class="text-container-right">
+    <h2>50,000 plastic bottles</h2>
+        <div class="comparison-visual">
+      <img src="assets/plastic-bottle.png" alt="Plastic bottle">
+    </div>
+  </div>
+</section>
+
+<!-- STEP 7: Forks -->
+<section id="step-7" class="step heap-step">
+  <div class="text-container-right">
+    <h2>or 200,000 plastic forks</h2>
+        <div class="comparison-visual">
+      <img src="assets/plastic-fork.png" alt="Plastic fork">
+    </div>
+  </div>
+</section>
+  </div>
+
+  <!-- ===== ALLUVIAL SECTION (Steps 8-12) ===== -->
+  <div class="alluvial-wrapper">
+    <!-- Non-sticky alluvial image (just a tall image) -->
+    <div class="alluvial-container-left">
+      <img src="assets/heap-alluvial-combined.png" class="alluvial-image" id="alluvial-image" alt="">
+    </div>
+    
+    <!-- Sticky traveling percentage numbers (RIGHT TO LEFT: 22, 50, 19, 9) -->
+    <div class="percentages-sticky" id="percentages-container">
+      <div class="percentage-number" id="percent-22" data-step="12">22%</div>
+      <div class="percentage-number" id="percent-50" data-step="11">50%</div>
+      <div class="percentage-number" id="percent-19" data-step="10">19%</div>
+      <div class="percentage-number" id="percent-9" data-step="9">9%</div>
+    </div>
+    
+    <!-- STEP 8: Intro -->
+    <section id="step-8" class="step alluvial-step">
+      <div class="text-container-right">
+        <h2>But where does all this plastic actually go?</h2>
+        <p>The current plastics lifecycle is far from circular.</p>
+      </div>
+    </section>
+
+    <!-- STEP 9: Recycling -->
+    <section id="step-9" class="step alluvial-step">
+      <div class="text-container-right">
+        <h2>of plastic is recycled</h2>
+        <p>Only 9%. And even then, most plastic can only be recycled once before its quality becomes too low to reuse.</p>
+        <p>So recycling is usually just one short turn before the plastic ends its life elsewhere.</p>
+      </div>
+    </section>
+
+    <!-- STEP 10: Incineration -->
+    <section id="step-10" class="step alluvial-step">
+      <div class="text-container-right">
+        <h2> Incinerated</h2>
+        <p>Burning plastic releases CO₂ and other greenhouse gases.</p>
+        <p>Plastic production already accounts for 3.4% of global emissions. Burning waste adds even more to that footprint.</p>
+        <p>And even the most advanced systems can’t eliminate toxic byproducts entirely.</p>
+      </div>
+    </section>
+
+    <!-- STEP 11: Landfill -->
+    <section id="step-11" class="step alluvial-step">
+      <div class="text-container-right">
+        <h2>goes to landfills</h2>
+        <p>Where it sits for 500+ years...</p>
+        <p>Plastic doesn't biodegrade — it just quietly accumulates. Over time, it breaks into microplastics that drift into soil, groundwater and air.</p>
+        <p>Half of all plastic ever made is now sitting in these slow-motion leak points.</p>
+      </div>
+    </section>
+
+    <!-- STEP 12: are mismanaged -->
+<section id="step-12" class="step alluvial-step">
+  <div class="text-container-right">
+    <h2>are mismanaged</h2>
+    <p>This includes:</p>
+    <ul style="text-align: left; margin-top: 1.5rem; padding-left: 1.5rem;">
+      <li style="margin-bottom: 1rem;"><strong>Uncontrolled dumpsites:</strong> Open heaps without lining or containment, common in low-income countries but present worldwide.</li>
+      <li style="margin-bottom: 1rem;"><strong>Open burning:</strong> Waste set on fire in backyards or roadside piles, producing toxic emissions—dioxins, furans, heavy metals—with no filtration.</li>
+      <li style="margin-bottom: 1rem;"><strong>Leaked to environment:</strong> Litter from streets, plastic spilling from landfills, debris escaping storm drains.</li>
+    </ul>
+  </div>
+</section>
+
+  </div>
+
+  <!-- STEP 13: Ocean transition (gradient + particles start) -->
+  <section id="step-13" class="step ocean-transition-section">
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+    <div class="content-centered">
+      <h2>Much of it escapes into waterways</h2>
+      <p>Mismanaged waste is the source of the plastics we see in rivers, on coastlines and drifting across landscapes far from where they were first used.</p>
+    </div>
+  </section>
+
+  <!-- STEP 14: Full ocean (particles continue) -->
+  <section id="step-14" class="step ocean-section">
+    <canvas id="particles-canvas-2" class="particles-canvas"></canvas>
+    <div class="content-centered">
+      <h2>Plastic flows on and accumulates.</h2>
+      <p>Rivers act like slow conveyor belts, feeding plastic into the ocean year after year.</p>
+      <p>Today, an estimated <strong>30 million tonnes of plastic</strong> are already in seas and oceans.</p>
+<p>Another <strong>100+ million tonnes</strong> are trapped in rivers — slowly moving downstream.</p>
+<p>Some of this plastic gathers into vast accumulation zones, like the Great Pacific Garbage Patch — a visible reminder of decades of leakage.</p>
+    </div>
+  </section>
+
+  <!-- STEP 15: Projection -->
+  <section id="step-15" class="step projection-section">
+    <div class="content-centered">
+      <p>At current rates,</p>
+      <h2>plastic waste is expected to triple by 2060.</h2>
+      <p>The crisis grows faster than our ability to handle it.</p>
+    </div>
+  </section>
+
+  <!-- STEP 16: Solution -->
+  <section id="step-16" class="step solution-section">
+    <div class="content-centered">
+      <h2>So… what do we do?</h2>
+      <p>We can't recycle our way out of this problem.</p>
+      <p>Recycling captures only a fraction of the plastic we create—and most still ends up burned, buried, or lost.</p>
+      <p class="emphasis">The real opportunity is elsewhere.</p>
+    </div>
+  </section>
+
+  <!-- STEP 17: Reuse CTA -->
+  <section id="step-17" class="step final-cta">
+    <div class="content-centered">
+      <p>Most plastic waste comes from single-use packaging.</p>
+      <p>Used once, discarded forever.</p>
+      <h2>But <strong>reuse systems</strong> offer a way forward.</h2>
+    
+   
+   
+    <div class="final-two-columns">
+      <div class="final-left">
+        <p style="margin-top: 5rem;" >They reduce waste at the source.</p> 
+        <p>They cut emissions.</p> 
+        <p>And they work —  when we support them.</p>
+        <p>The REUSE Foundation exists to accelerate this shift.</p>
+        <a href="https://www.reusefoundation.org/" class="cta-button">Our Initiatives</a>
+      </div>
+      <div class="final-right">
+        <img src="assets/Reuse_LOGO_Primary.svg" alt="REUSE Foundation" class="reuse-logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/d3@7"></script>
+  <script src="https://unpkg.com/scrollama@3.2.0/build/scrollama.min.js"></script>
+  <script src="js/scrollama-init.js"></script>
+</body>
+</html>

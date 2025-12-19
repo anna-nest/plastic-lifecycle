@@ -214,7 +214,7 @@ strong {
 
 .text-container-right {
   max-width: 100%;
-  padding: 10vh 2rem;
+  padding: 10vh 0.5rem;
 }
 
 .person-silhouette {
@@ -443,6 +443,8 @@ strong {
   width: 100%;
   height: auto;
   max-width: 200px;
+  display: block;      /* ADD THIS */
+  min-width: 100px;    /* ADD THIS - ensure minimum size */
 }
 
 /* Existing styles - update to work with left alignment */

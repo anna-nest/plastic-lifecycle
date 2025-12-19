@@ -634,9 +634,9 @@ strong {
     z-index: 10;
   }
   
-  #percent-22 { left: 6%; }
-  #percent-50 { left: 35%; }
-  #percent-19 { left: 65%; }
+  #percent-22 { left: 5%; }
+  #percent-50 { left: 32%; }
+  #percent-19 { left: 62%; }
   #percent-9 { left: 78%; }
   
   .alluvial-step {
@@ -668,7 +668,7 @@ strong {
   }
   
   #step-12 {
-    min-height: 90vh;
+    min-height: 70vh;
     padding-left: 23%;
   }
   

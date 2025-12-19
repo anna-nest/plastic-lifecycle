@@ -28,28 +28,28 @@ document.addEventListener('DOMContentLoaded', function() {
       element: document.getElementById('percent-22'),
       activeStep: 12,
       initialLeft: '5%',
-      finalLeft: '28%',
+       finalLeft: isMobile ? '23%' : '28%',  // Shift left on mobile
       extracted: false
     },
     '50': { 
       element: document.getElementById('percent-50'),
       activeStep: 11,
       initialLeft: '32%',
-      finalLeft: '52%',
+      finalLeft: isMobile ? '47%' : '52%',  // Shift left on mobile
       extracted: false
     },
     '19': { 
       element: document.getElementById('percent-19'),
       activeStep: 10,
       initialLeft: '58%',
-      finalLeft: '57%',
+      finalLeft: isMobile ? '52%' : '57%',  // Shift left on mobile
       extracted: false
     },
     '9': { 
       element: document.getElementById('percent-9'),
       activeStep: 9,
       initialLeft: '71%',
-      finalLeft: '60%',
+      finalLeft: isMobile ? '55%' : '60%',  // Shift left on mobile
       extracted: false
     }
   };

@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
       p.element.classList.add('animating');
       
       // Calculate final left position in pixels
-      const finalLeftPx = (parseFloat(p.finalLeft) / 100) * wrapperRect.width+32; // 32px = 2rem text container padding offset
+      const finalLeftPx = (parseFloat(p.finalLeft) / 100) * wrapperRect.width+8; // 8px = 0.5rem text container padding offset
       p.element.style.left = finalLeftPx + 'px';
     }, 100);
   }

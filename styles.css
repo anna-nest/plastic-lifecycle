@@ -30,7 +30,6 @@ p {
 
 strong {
   font-weight: 600;
-  color: #f5c16c;
 }
 
 .emphasis {
@@ -304,11 +303,11 @@ strong {
   opacity: 0;
     /* Stronger shadow on all sides */
   text-shadow: 
-    -2px -2px 4px rgba(255, 255, 255, 0.9),
-    2px -2px 4px rgba(255, 255, 255, 0.9),
-    -2px 2px 4px rgba(255, 255, 255, 0.9),
-    2px 2px 4px rgba(255, 255, 255, 0.9),
-    0 0 8px rgba(255, 255, 255, 0.8);
+    -2px -2px 4px rgba(0, 0, 0, 0.9),
+    2px -2px 4px rgba(0, 0, 0, 0.9),
+    -2px 2px 4px rgba(0, 0, 0, 0.9),
+    2px 2px 4px rgba(0, 0, 0, 0.9),
+    0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 /* Initial horizontal positions */

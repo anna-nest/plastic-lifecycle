@@ -1,0 +1,688 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+  background: #dbf3ff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.emphasis {
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* ===== SECTIONS ===== */
+.step {
+  min-height: 150vh;
+  position: relative;
+}
+
+.content-centered {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* ===== PLASTIC OVERLAY (scrolls away) ===== */
+.plastic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.plastic-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 110vw;
+  height: 110vh;
+  object-fit: cover;
+  object-position: bottom right;
+  transform: translateY(-50px); 
+  opacity: 0.8;
+}
+
+/* ===== INTRO SECTION (STEPS 0-1) ===== */
+.intro-wrapper {
+  position: relative;
+  min-height: 200vh;
+}
+
+.intro-text-sticky {
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.intro-text-sticky p {
+  font-size: 1.5rem;
+  line-height: 2;
+  margin-bottom: 0.8rem;
+}
+
+.intro-text-sticky p:last-child {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-top: 1.8rem;
+}
+
+.intro-step {
+  min-height: 100vh;
+}
+
+.scroll-cue {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 20;
+  animation: bounce 2s ease-in-out infinite;
+  opacity: 0.8;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-cue .arrow {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.scroll-cue p {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(15px); }
+}
+
+/* ===== STEP 2: PRODUCTION ===== */
+.production-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 4%;
+  min-height: 150vh;
+}
+
+.content-wrapper-wide {
+  display: flex;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1600px;
+  align-items: center;
+}
+
+.chart-placeholder {
+  flex: 3;
+  height: 70vh;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px dashed rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border-radius: 8px;
+}
+
+.text-content {
+  flex: 2;
+}
+
+/* ===== HEAP SECTION (STEPS 3-7) ===== */
+.heap-wrapper {
+  position: relative;
+  min-height: 750vh;
+}
+
+.heap-sticky {
+  position: sticky;
+  top: 0;
+  height: auto;
+  min-height: 100vh;
+  max-height: 120vh;
+  width: calc(1220vh * 0.0874);
+  display: flex;
+  align-items: flex-end;
+  overflow: visible;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+}
+
+.plastic-heap {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom left;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.heap-step {
+  position: relative;
+  min-height: 150vh;
+  padding-left: 60%;
+  padding-right: 4%;
+  padding-top: 20vh;
+}
+
+.text-container-right {
+  max-width: 100%;
+  padding: 10vh 2rem;
+}
+
+.person-silhouette {
+  width: 60px;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 30px 30px 0 0;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.person-silhouette::before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 35px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+}
+
+.comparison-visual {
+  width: 150px;
+  height: 150px;
+  margin: 2rem 0;
+}
+
+.comparison-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.detail-list li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;  /* Changed from 1rem to match paragraph size */
+}
+
+/* ===== ALLUVIAL SECTION (STEPS 8-12) ===== */
+.alluvial-wrapper {
+  position: relative;
+  min-height: 1220vh;
+  margin-top: -5px;
+  padding-top: 0;
+}
+
+.alluvial-container-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(1220vh * 0.0874);
+  height: 1220vh;
+  overflow: visible;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.alluvial-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: top left;
+}
+
+/* Sticky percentage numbers container */
+.percentages-sticky {
+  position: sticky;
+  top: 33vh;
+  left: 0;
+  width: 60%;
+  height: 100px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.percentage-number {
+  position: absolute;
+  top: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: 'League Spartan', 'Poppins', sans-serif;
+  color: #000000;
+  opacity: 0;
+    /* Stronger shadow on all sides */
+  text-shadow: 
+    -2px -2px 4px rgba(255, 255, 255, 0.9),
+    2px -2px 4px rgba(255, 255, 255, 0.9),
+    -2px 2px 4px rgba(255, 255, 255, 0.9),
+    2px 2px 4px rgba(255, 255, 255, 0.9),
+    0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Initial horizontal positions */
+#percent-22 { left: 5%; }
+#percent-50 { left: 32%; }
+#percent-19 { left: 60%; }
+#percent-9 { left: 72%; }
+
+/* When percentage is visible */
+.percentage-number.visible {
+  opacity: 1;
+}
+
+/* When percentage animates to final position */
+.percentage-number.animating {
+  transition: left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.alluvial-step {
+  position: relative;
+  min-height: 244vh;
+  padding-right: 4%;
+  padding-top: 20vh;
+}
+
+/* Progressive leftward movement of text */
+#step-8 {
+  padding-left: 60%;
+}
+
+#step-9 {
+  padding-left: 60%;
+}
+
+#step-10 {
+  padding-left: 57%;
+}
+
+#step-11 {
+  padding-left: 52%;
+}
+
+#step-12 {
+  padding-left: 28%;
+}
+
+/* ===== STEP 13: OCEAN TRANSITION ===== */
+.ocean-transition-section {
+  min-height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom,
+    #dbf3ff 0%,
+    #8ec8e0 25%,
+    #4a9cc0 50%,
+    #003c64 100%
+  );
+  position: relative;
+}
+
+.ocean-transition-section .content-centered {
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== STEP 14: FULL OCEAN ===== */
+.ocean-section {
+  min-height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #003c64;
+  position: relative;
+}
+
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ocean-section .content-centered {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* ===== STEPS 15-17: FINAL SECTIONS ===== */
+.projection-section,
+.solution-section
+ {
+  min-height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-cta {
+  min-height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.final-content {
+  text-align: left;  /* Left-align all text */
+  max-width: 1000px;
+  padding: 4rem 2rem;
+}
+
+.final-two-columns {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.final-left {
+  flex: 1;
+}
+
+.final-right {
+  flex: 0 0 200px;  /* Fixed width for logo */
+}
+
+.reuse-logo {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+/* Existing styles - update to work with left alignment */
+
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1rem 3rem;
+  background: #003c64;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(29, 49, 63, 0.288);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .content-wrapper-wide {
+    flex-direction: column;
+  }
+  
+  .heap-sticky {
+    width: calc(500vh * 0.07 + 5vw);  /* Match mobile */
+    height: 60vh;
+    min-height: 60vh;
+    max-height: 80vh;
+  }
+  
+  .alluvial-container-left {
+    width: calc(500vh * 0.07 + 5vw) !important;  /* Match heap - override the 60vw */
+    position: relative;
+    height: auto;
+  }
+  
+  .percentages-sticky {
+    width: calc(500vh * 0.07 + 5vw) !important;
+    z-index: 10;
+  }
+  
+  .heap-step,
+  .alluvial-step {
+    padding-left: 4%;
+  }
+  
+  .percentage-number {
+    font-size: 2rem;
+  }
+}
+
+/* ===== MOBILE FIXES - UPDATE THESE SECTIONS ===== */
+
+@media (max-width: 768px) {
+  /* GENERAL */
+
+ :root {
+    --mobile-image-width: calc(400vh * 0.0874);
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+  
+  .step {
+    min-height: 120vh;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+  
+  /* Intro */
+  .intro-text-sticky p {
+    font-size: 1rem;
+  }
+  
+  .intro-text-sticky p:last-child {
+    font-size: 1.2rem;
+  }
+  
+  .plastic-image {
+    width: 150vw;
+    height: 150vh;
+  }
+  
+  /* Production */
+  .production-section {
+    padding: 4rem 2%;
+  }
+  
+  .content-wrapper-wide {
+    gap: 2rem;
+  }
+  
+  .chart-placeholder {
+    height: 50vh;
+  }
+  
+  /* HEAP SECTION - Different bottom approach */
+  .heap-wrapper {
+    min-height: 600vh;
+  }
+  
+  .heap-sticky {
+    width: var(--mobile-image-width);  /* Match alluvial */
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  
+  .plastic-heap {
+    width: 100%;  /* Fill container width */
+    height: auto;  /* Natural height */
+    object-fit: contain;  /* Back to contain - scale properly */
+    object-position: bottom left;
+    margin-top: auto;
+    flex-shrink: 0;
+ 
+  }
+  
+  /* HEAP TEXT */
+  .heap-step {
+    min-height: 120vh;
+    padding-left: 45%;
+    padding-right: 2%;
+    padding-top: 10vh;
+  }
+  
+  .text-container-right {
+    width: 100%;
+    padding: 5vh 2rem 5vh 2rem;
+  }
+  
+  .person-silhouette,
+  .comparison-visual {
+    margin-left: 0;
+  }
+  
+  /* ALLUVIAL SECTION - MATCH HEAP WIDTH EXACTLY */
+  .alluvial-wrapper {
+    min-height: var(--alluvial-height);
+    margin-top: -5px;
+  }
+  
+  
+  .alluvial-container-left {
+    width: var(--mobile-image-width);  /* Same calculation */
+    height: 400vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .alluvial-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top left;
+  }
+  
+  
+  .percentages-sticky {
+    width: calc(500vh * 0.07 + 5vw) !important;
+    z-index: 10;
+  }
+  
+  .percentage-number {
+    font-size: 1.5rem;
+    z-index: 10;
+  }
+  
+  #percent-22 { left: 6%; }
+  #percent-50 { left: 35%; }
+  #percent-19 { left: 65%; }
+  #percent-9 { left: 78%; }
+  
+  .alluvial-step {
+    padding-right: 0%;
+    position: relative;
+    z-index: 5;
+  }
+  
+  #step-8 {
+    min-height: 60vh;
+    padding-left: 60%;
+    display: flex;
+    align-items: center;
+  }
+  
+  #step-9 {
+    min-height: 90vh;
+    padding-left: 60%;
+  }
+  
+  #step-10 {
+    min-height: 80vh;
+    padding-left: 57%;
+  }
+  
+  #step-11 {
+    min-height: 80vh;
+    padding-left: 52%;
+  }
+  
+  #step-12 {
+    min-height: 90vh;
+    padding-left: 28%;
+  }
+  
+  /* Final section */
+  .final-two-columns {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .final-right {
+    flex: 0 0 150px;
+  }
+  
+  .reuse-logo {
+    max-width: 150px;
+  }
+}

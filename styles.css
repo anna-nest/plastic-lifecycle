@@ -526,6 +526,8 @@ strong {
     font-size: 0.95rem;
   }
   
+
+ 
   /* Intro */
   .intro-text-sticky p {
     font-size: 1rem;
@@ -539,6 +541,14 @@ strong {
     width: 150vw;
     height: 150vh;
   }
+
+  .scroll-cue .arrow {
+  font-size: 2.5rem;
+}
+
+.scroll-cue p {
+  font-size: 1rem;
+ }
   
   /* Production */
   .production-section {

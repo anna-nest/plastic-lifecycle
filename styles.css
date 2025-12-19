@@ -556,7 +556,11 @@ strong {
   }
   
   .content-wrapper-wide {
-    gap: 2rem;
+    gap: 1rem;
+  }
+
+    .text-content {
+    padding: 2rem;  /* Add padding on all sides */
   }
   
   .chart-placeholder {

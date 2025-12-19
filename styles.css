@@ -504,11 +504,12 @@ strong {
 /* ===== MOBILE FIXES - UPDATE THESE SECTIONS ===== */
 
 @media (max-width: 768px) {
-  :root {
+  /* GENERAL */
+
+ :root {
     --mobile-image-width: calc(400vh * 0.0874);
   }
-  
-  /* GENERAL */
+
   body {
     overflow-x: hidden;
   }
@@ -552,13 +553,13 @@ strong {
     height: 50vh;
   }
   
-  /* HEAP SECTION */
+  /* HEAP SECTION - Different bottom approach */
   .heap-wrapper {
     min-height: 600vh;
   }
   
   .heap-sticky {
-    width: var(--mobile-image-width);
+    width: var(--mobile-image-width);  /* Match alluvial */
     height: 100vh;
     min-height: 100vh;
     max-height: 100vh;
@@ -571,25 +572,28 @@ strong {
     justify-content: flex-end;
   }
   
+  
   .plastic-heap {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+    width: 100%;  /* Fill container width */
+    height: auto;  /* Natural height */
+    object-fit: contain;  /* Back to contain - scale properly */
     object-position: bottom left;
     margin-top: auto;
     flex-shrink: 0;
+ 
   }
   
+  /* HEAP TEXT */
   .heap-step {
     min-height: 120vh;
     padding-left: 45%;
-    padding-right: 1%;
+    padding-right: 2%;
     padding-top: 10vh;
   }
   
   .text-container-right {
     width: 100%;
-    padding: 5vh 1rem 5vh 2rem;
+    padding: 5vh 0rem 5vh 2rem;
   }
   
   .person-silhouette,
@@ -597,14 +601,15 @@ strong {
     margin-left: 0;
   }
   
-  /* ALLUVIAL SECTION */
+  /* ALLUVIAL SECTION - MATCH HEAP WIDTH EXACTLY */
   .alluvial-wrapper {
-    min-height: 400vh;
+    min-height: var(--alluvial-height);
     margin-top: -5px;
   }
   
+  
   .alluvial-container-left {
-    width: var(--mobile-image-width);
+    width: var(--mobile-image-width);  /* Same calculation */
     height: 400vh;
     position: absolute;
     left: 0;
@@ -618,8 +623,9 @@ strong {
     object-position: top left;
   }
   
+  
   .percentages-sticky {
-    width: var(--mobile-image-width);
+    width: calc(500vh * 0.07 + 5vw) !important;
     z-index: 10;
   }
   
@@ -628,39 +634,36 @@ strong {
     z-index: 10;
   }
   
-  /* Your custom percentage positions */
   #percent-22 { left: 6%; }
   #percent-50 { left: 35%; }
   #percent-19 { left: 65%; }
   #percent-9 { left: 78%; }
   
   .alluvial-step {
-    padding-right: 1%;
+    padding-right: 0%;
     position: relative;
     z-index: 5;
   }
   
-  /* Adjusted step heights for better alignment */
   #step-8 {
     min-height: 40vh;
     padding-left: 60%;
-    padding-top: 5vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
   }
   
   #step-9 {
-    min-height: 100vh;
+    min-height: 80vh;
     padding-left: 60%;
   }
   
   #step-10 {
-    min-height: 85vh;
+    min-height: 70vh;
     padding-left: 57%;
   }
   
   #step-11 {
-    min-height: 85vh;
+    min-height: 70vh;
     padding-left: 52%;
   }
   

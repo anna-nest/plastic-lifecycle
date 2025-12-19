@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
       element: document.getElementById('percent-50'),
       activeStep: 11,
       initialLeft: '32%',
-      finalLeft: isMobile ? '42%' : '52%',  // Shift left on mobile
+      finalLeft: isMobile ? '40%' : '52%',  // Shift left on mobile
       extracted: false
     },
     '19': { 

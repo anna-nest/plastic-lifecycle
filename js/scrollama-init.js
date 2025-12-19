@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   
   // ===== CHOREOGRAPHED PERCENTAGE ANIMATIONS =====
+
+  const isMobile = window.innerWidth <= 768; 
+
   const percentages = {
     '22': { 
       element: document.getElementById('percent-22'),

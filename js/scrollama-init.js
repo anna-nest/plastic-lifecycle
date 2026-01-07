@@ -56,7 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
       extracted: false
     }
   };
-  
+
+  let productionChart = null;
+  let debrisReveal = null;
   let currentAlluvialStep = 8;
   
   // Show all percentages initially
@@ -238,6 +240,150 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+
+  // ===== FLOATING OBJECTS SYSTEM =====
+
+// Load images
+const bottleImg = new Image();
+bottleImg.src = 'assets/plastic-bottle.png';
+
+const bagImg = new Image();
+bagImg.src = 'assets/plastic-bag.png';
+
+const forkImg = new Image();
+forkImg.src = 'assets/plastic-fork.png';
+
+let floatingObjects = [];
+let floatingAnimationId = null;
+
+// Create floating objects array
+function createFloatingObjects(canvas) {
+  floatingObjects = [];
+  
+  for (let i = 0; i < 5; i++) {
+    // 5 bottles
+    const size = canvas.height * 0.08;
+    floatingObjects.push({
+      img: bottleImg,
+      x: size + Math.random() * (canvas.width - size * 2),  // FIXED: margin on both sides
+      y: size + Math.random() * (canvas.height - size * 2),  // FIXED: margin top/bottom
+      size: size,
+      baseX: 0,
+      baseY: 0,
+      rotation: Math.random() * 360,
+      baseRotation: Math.random() * 360,
+      driftSpeed: 0.3 + Math.random() * 0.3,  // INCREASED: 0.3-0.6 (was 0.2-0.4)
+      driftAmplitude: 12 + Math.random() * 12,  // INCREASED: 12-24px (was 8-16px)
+      rotateSpeed: 0.15 + Math.random() * 0.2,  // INCREASED: 0.15-0.35 (was 0.1-0.25)
+      rotateAmplitude: 5 + Math.random() * 7,  // INCREASED: 5-12deg (was 3-8deg)
+      time: Math.random() * Math.PI * 2
+    });
+    
+    // 5 bags
+    const bagSize = canvas.height * 0.1;
+    floatingObjects.push({
+      img: bagImg,
+      x: bagSize + Math.random() * (canvas.width - bagSize * 2),  // FIXED
+      y: bagSize + Math.random() * (canvas.height - bagSize * 2),  // FIXED
+      size: bagSize,
+      baseX: 0,
+      baseY: 0,
+      rotation: Math.random() * 360,
+      baseRotation: Math.random() * 360,
+      driftSpeed: 0.25 + Math.random() * 0.3,  // INCREASED
+      driftAmplitude: 15 + Math.random() * 15,  // INCREASED: 15-30px
+      rotateSpeed: 0.12 + Math.random() * 0.18,  // INCREASED
+      rotateAmplitude: 6 + Math.random() * 8,  // INCREASED
+      time: Math.random() * Math.PI * 2
+    });
+    
+    // 5 forks
+    const forkSize = canvas.height * 0.06;
+    floatingObjects.push({
+      img: forkImg,
+      x: forkSize + Math.random() * (canvas.width - forkSize * 2),  // FIXED
+      y: forkSize + Math.random() * (canvas.height - forkSize * 2),  // FIXED
+      size: forkSize,
+      baseX: 0,
+      baseY: 0,
+      rotation: Math.random() * 360,
+      baseRotation: Math.random() * 360,
+      driftSpeed: 0.35 + Math.random() * 0.35,  // INCREASED
+      driftAmplitude: 8 + Math.random() * 12,  // INCREASED: 8-20px
+      rotateSpeed: 0.18 + Math.random() * 0.25,  // INCREASED
+      rotateAmplitude: 5 + Math.random() * 8,  // INCREASED
+      time: Math.random() * Math.PI * 2
+    });
+  }
+  
+  // Set base positions
+  floatingObjects.forEach(obj => {
+    obj.baseX = obj.x;
+    obj.baseY = obj.y;
+  });
+}
+
+// Animate floating objects with gentle wave motion
+function animateFloatingObjects(canvas, ctx) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  floatingObjects.forEach(obj => {
+    // Increment time for wave motion
+    obj.time += 0.01;  // Very slow
+    
+    // Calculate gentle wave drift (sine wave for smooth back-and-forth)
+    const driftX = Math.sin(obj.time * obj.driftSpeed) * obj.driftAmplitude;
+    const driftY = Math.cos(obj.time * obj.driftSpeed * 0.7) * (obj.driftAmplitude * 0.5);
+    
+    // Calculate gentle rotation (sine wave for smooth rotation)
+    const rotationOffset = Math.sin(obj.time * obj.rotateSpeed) * obj.rotateAmplitude;
+    
+    // Update position and rotation
+    obj.x = obj.baseX + driftX;
+    obj.y = obj.baseY + driftY;
+    obj.rotation = obj.baseRotation + rotationOffset;
+    
+    // Wrap around edges
+    if (obj.baseX > canvas.width + obj.size) obj.baseX = -obj.size;
+    if (obj.baseX < -obj.size) obj.baseX = canvas.width + obj.size;
+    if (obj.baseY > canvas.height + obj.size) obj.baseY = -obj.size;
+    if (obj.baseY < -obj.size) obj.baseY = canvas.height + obj.size;
+    
+    // Draw with rotation and opacity
+    ctx.save();
+    ctx.translate(obj.x, obj.y);
+    ctx.rotate(obj.rotation * Math.PI / 180);
+    ctx.globalAlpha = 0.7;  // 70% opacity (faint)
+
+// RECOLOR: Draw in lighter cyan/blue
+ctx.globalCompositeOperation = 'source-over';
+
+    ctx.drawImage(
+      obj.img,
+      -obj.size / 2,
+      -obj.size / 2,
+      obj.size,
+      obj.size
+    );
+
+// Apply color overlay (lighter cyan)
+ctx.globalCompositeOperation = 'source-atop';  // Only affects existing pixels
+ctx.fillStyle = '#dbf3ff';  // Light cyan/blue
+ctx.fillRect(-obj.size / 2, -obj.size / 2, obj.size, obj.size);
+
+    ctx.restore();
+  });
+  
+  floatingAnimationId = requestAnimationFrame(() => animateFloatingObjects(canvas, ctx));
+}
+
+// Stop floating objects animation
+function stopFloatingObjects() {
+  if (floatingAnimationId) {
+    cancelAnimationFrame(floatingAnimationId);
+    floatingAnimationId = null;
+  }
+}
   
   // ===== SCROLLAMA =====
   const scroller = scrollama();
@@ -246,12 +392,22 @@ document.addEventListener('DOMContentLoaded', function() {
     .setup({
       step: '.step',
       offset: 0.9, // Start when step is 90% visible (very early)
+      progress: true, 
       debug: window.location.search.includes('debug')
     })
     .onStepEnter((response) => {
       const stepId = response.element.id;
       console.log('→ Step entered:', stepId);
       
+        // initialize production chart
+    if (stepId === 'step-2') {
+      if (!productionChart) {
+        productionChart = new PlasticProductionChart('production-chart-container');
+        productionChart.init();
+      }
+      productionChart.startAnimation();
+    }
+
       // Handle alluvial section
       if (stepId === 'step-8') {
         showAllPercentages();
@@ -266,11 +422,93 @@ document.addEventListener('DOMContentLoaded', function() {
         initParticles('particles-canvas');
       }
       
-      if (stepId === 'step-14') {
-        console.log('🌊 Starting particles on full ocean NOW');
-        initParticles('particles-canvas-2');
+if (stepId === 'step-14') {
+  console.log('🌊 Step 14 entered - initializing floating objects');
+  
+  // FLOATING OBJECTS
+  const floatingCanvas = document.getElementById('floating-objects-canvas');
+  if (!floatingCanvas) {
+    console.error('❌ floating-objects-canvas not found!');
+  } else {
+    console.log('✓ Found floating canvas');
+    const floatingCtx = floatingCanvas.getContext('2d');
+    
+    // Set canvas size
+    floatingCanvas.width = floatingCanvas.offsetWidth;
+    floatingCanvas.height = floatingCanvas.offsetHeight;
+    console.log('✓ Canvas size:', floatingCanvas.width, 'x', floatingCanvas.height);
+    
+    // Check if images exist
+    console.log('Bottle loaded:', bottleImg.complete);
+    console.log('Bag loaded:', bagImg.complete);
+    console.log('Fork loaded:', forkImg.complete);
+    
+    // Start animation immediately (don't wait for decode)
+    createFloatingObjects(floatingCanvas);
+    console.log('✓ Created', floatingObjects.length, 'floating objects');
+    animateFloatingObjects(floatingCanvas, floatingCtx);
+    console.log('✓ Started floating animation');
+  }
+  
+  // PARTICLES (existing code)
+  console.log('🌊 Starting particles on full ocean');
+  initParticles('particles-canvas-2');
+}
+
+// Stop floating objects when leaving step 16
+if (stepId === 'step-16' && floatingObjects.length > 0) {
+  console.log('🛑 Stopping floating objects');
+  stopFloatingObjects();
+  const floatingCanvas = document.getElementById('floating-objects-canvas');
+  if (floatingCanvas) {
+    const floatingCtx = floatingCanvas.getContext('2d');
+    floatingCtx.clearRect(0, 0, floatingCanvas.width, floatingCanvas.height);
+  }
+}
+
+// STEP 16: Start debris reveal
+    if (stepId === 'step-16') {
+      if (!debrisReveal) {
+        debrisReveal = new DebrisReveal('debris-reveal-container');
+        debrisReveal.init();
       }
-    });
+      debrisReveal.start();
+    }
+    
+    // STEP 17: Start fade
+    if (stepId === 'step-17') {
+      if (debrisReveal) {
+        debrisReveal.startFade();
+      }
+    }
+  })
+  .onStepProgress((response) => {
+    const stepId = response.element.id;
+    const progress = response.progress;
+    
+    console.log('📊 Progress:', stepId, Math.floor(progress * 100) + '%');
+    
+    // STEP 16: Update growth
+    if (stepId === 'step-16' && debrisReveal && debrisReveal.isActive) {
+      debrisReveal.updateGrowth(progress);
+    }
+    
+    // STEP 17: Update fade
+    if (stepId === 'step-17' && debrisReveal && debrisReveal.isFading) {
+      debrisReveal.updateFade(progress);
+    }
+  })
+  .onStepExit((response) => {
+    const stepId = response.element.id;
+    const direction = response.direction;
+    
+    // Hide when scrolling back
+    if (stepId === 'step-16' && direction === 'up') {
+      if (debrisReveal) {
+        debrisReveal.reset();
+      }
+    }
+});
   
   console.log('✓ Scrollama initialized');
   

@@ -18,9 +18,9 @@ body {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
-  font-weight: 600;
+   font-weight: 600;
 }
 
 p {
@@ -76,7 +76,7 @@ strong {
   object-fit: cover;
   object-position: bottom right;
   transform: translateY(-50px); 
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 /* ===== INTRO SECTION (STEPS 0-1) ===== */
@@ -96,18 +96,6 @@ strong {
   padding: 2rem;
 }
 
-.intro-text-sticky p {
-  font-size: 1.5rem;
-  line-height: 2;
-  margin-bottom: 0.8rem;
-}
-
-.intro-text-sticky p:last-child {
-  font-weight: 600;
-  font-size: 1.8rem;
-  margin-top: 1.8rem;
-}
-
 .intro-step {
   min-height: 100vh;
 }
@@ -117,6 +105,7 @@ strong {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  font-family: 'League Spartan','Poppins', sans-serif;
   text-align: center;
   z-index: 20;
   animation: bounce 2s ease-in-out infinite;
@@ -131,7 +120,7 @@ strong {
 }
 
 .scroll-cue p {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 500;
 }
 
@@ -149,29 +138,42 @@ strong {
   min-height: 150vh;
 }
 
-.content-wrapper-wide {
-  display: flex;
-  gap: 4rem;
+.production-section .content-wrapper-wide {
+  display: flex !important;  /* Force flex */
+  gap: 2rem;
   width: 100%;
   max-width: 1600px;
   align-items: center;
 }
 
-.chart-placeholder {
-  flex: 3;
-  height: 70vh;
-  background: rgba(255, 255, 255, 0.3);
-  border: 2px dashed rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
+.production-section .chart-container {
+  flex: 2 !important;  /* 2/3 width */
+  height: 75vh;
+  min-height: 550px;
+  background: transparent;
   border-radius: 8px;
+  padding: 1rem;
 }
 
-.text-content {
-  flex: 2;
+.production-section .text-content {
+  flex: 1 !important;  /* 1/3 width */
 }
+
+/* Chart styling */
+.chart-container .x-axis path,
+.chart-container .y-axis path,
+.chart-container .x-axis line,
+.chart-container .y-axis line {
+  stroke: #333;
+  stroke-width: 1px; /* Thinner - was default 2px */
+}
+
+/* .chart-container .grid line {
+  stroke: #ddd;
+} */
+
+
+
 
 /* ===== HEAP SECTION (STEPS 3-7) ===== */
 .heap-wrapper {
@@ -189,7 +191,7 @@ strong {
   display: flex;
   align-items: flex-end;
   overflow: visible;
-  z-index: 2;
+  z-index: 3;
   margin: 0;
   padding: 0;
 }
@@ -210,44 +212,54 @@ strong {
   padding-left: 60%;
   padding-right: 4%;
   padding-top: 20vh;
-}
+ }
 
 .text-container-right {
   max-width: 100%;
   padding: 10vh 0.5rem;
-}
-
-.person-silhouette {
-  width: 60px;
-  height: 120px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 30px 30px 0 0;
+  z-index: 2;
   position: relative;
-  margin: 2rem 0;
-}
-
-.person-silhouette::before {
-  content: '';
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 35px;
-  height: 35px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 50%;
 }
 
 .comparison-visual {
-  width: 150px;
-  height: 150px;
+  width: auto;
+  height: 45vh;  /* 1/4 of ~100vh heap height */
   margin: 2rem 0;
 }
 
+
 .comparison-visual img {
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: contain;
+}
+
+.silhouette-container {
+  position: absolute;
+  top: 0;
+  left: 60%;  /* Start where text starts - CHANGED */
+  width: 35%;  /* Take up right side space - CHANGED */
+  height: 400vh;  /* 2 × 150vh for steps 3-4 */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.person-silhouette-scroll {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+}
+
+.person-silhouette-scroll img {
+  position: absolute;
+  bottom: 0;
+  left: 0;  /* Align with text left edge */
+  height: 75vh;  /* Bigger! */
+  width: auto;
+  object-fit: contain;
+  z-index: 1;
 }
 
 .detail-list li {
@@ -296,9 +308,9 @@ strong {
 .percentage-number {
   position: absolute;
   top: 0;
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: 'League Spartan', 'Poppins', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 670;
+  font-family:  'Poppins', sans-serif;
   color: #000000;
   opacity: 0;
     /* Stronger shadow on all sides */
@@ -395,6 +407,17 @@ strong {
   z-index: 1;
 }
 
+/* Add this after .particles-canvas */
+.floating-objects-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0.5;  /* Between background (0) and particles (1) */
+}
+
 .ocean-section .content-centered {
   position: relative;
   z-index: 2;
@@ -411,38 +434,79 @@ strong {
   justify-content: center;
 }
 
+/* Debris container */
+.debris-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0; /* Behind everything */
+}
+
+.solution-section .content-centered,
+.transition-section .content-centered,
+.final-cta .content-centered {
+  position: relative;
+  z-index: 2; /* Above debris */
+}
+/* Add halo to letters on.solution-section styles */
+.solution-section .content-centered h2,
+.solution-section .content-centered p {
+  /* text-shadow: 
+    -2px -2px 3px rgba(255, 255, 255, 0.9),
+    2px -2px 3px rgba(255, 255, 255, 0.9),
+    -2px 2px 3px rgba(255, 255, 255, 0.9),
+    2px 2px 3px rgba(255, 255, 255, 0.9),
+    0 0 8px rgba(255, 255, 255, 0.8); */
+  
+    
+    text-shadow: 
+
+    /* Middle ring - medium spread */
+    -2px -2px 6px rgba(255, 255, 255, 0.95),
+    2px -2px 6px rgba(255, 255, 255, 0.95),
+    -2px 2px 6px rgba(255, 255, 255, 0.95),
+    2px 2px 6px rgba(255, 255, 255, 0.95),
+    /* Outer ring - wider glow */
+    -3px -3px 10px rgba(255, 255, 255, 0.9),
+    3px -3px 10px rgba(255, 255, 255, 0.9),
+    -3px 3px 10px rgba(255, 255, 255, 0.9),
+    3px 3px 10px rgba(255, 255, 255, 0.9),
+    /* Extra wide glow */
+    0 0 12px rgba(255, 255, 255, 0.85),
+    0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+
+
+.transition-section {
+  min-height: 180vh; /* Enough time for transition */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .final-cta {
-  min-height: 150vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .final-content {
-  text-align: left;  /* Left-align all text */
+  text-align: center;  
   max-width: 1000px;
   padding: 4rem 2rem;
 }
 
-.final-two-columns {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  margin-top: 2rem;
-}
-
-.final-left {
-  flex: 1;
-}
-
-.final-right {
-  flex: 0 0 200px;  /* Fixed width for logo */
-}
 
 .reuse-logo {
   width: 100%;
   height: auto;
-  max-width: 200px;
+   margin: 3rem auto;
+  max-width: 300px;
   display: block;      /* ADD THIS */
   min-width: 100px;    /* ADD THIS - ensure minimum size */
 }
@@ -458,8 +522,9 @@ strong {
   color: white;
   text-decoration: none;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.1rem;
+   font-family: 'League Spartan','Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
 }
@@ -471,12 +536,12 @@ strong {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .content-wrapper-wide {
-    flex-direction: column;
+ .production-section .content-wrapper-wide {  /* ADD .production-section prefix */
+    flex-direction: row !important; /* Explicitly keep row */
   }
   
   .heap-sticky {
-    width: calc(500vh * 0.07 + 5vw);  /* Match mobile */
+    width: calc(500vh * 0.07 + 5vw);
     height: 60vh;
     min-height: 60vh;
     max-height: 80vh;
@@ -498,12 +563,36 @@ strong {
     padding-left: 4%;
   }
   
-  .percentage-number {
-    font-size: 2rem;
+  /* .percentage-number {
+    font-size: 2rem; */
+  /* } */
+}
+
+
+/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Only applies between 769-1024px */
+  /* Keep production chart landscape */
+  .production-section .content-wrapper-wide {
+    flex-direction: row !important;
+  }
+  
+  /* Adjust heap/alluvial for smaller screens */
+  .heap-sticky {
+    width: calc(500vh * 0.07 + 5vw);
+  }
+  
+  .alluvial-container-left {
+    width: calc(500vh * 0.07 + 5vw) !important;
+  }
+  
+  .percentages-sticky {
+    width: calc(500vh * 0.07 + 5vw) !important;
   }
 }
 
-/* ===== MOBILE FIXES - UPDATE THESE SECTIONS ===== */
+
+/* ===== MOBILE FIXES ===== */
 
 @media (max-width: 768px) {
   /* GENERAL */
@@ -521,7 +610,7 @@ strong {
   }
   
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   
   p {
@@ -557,17 +646,26 @@ strong {
     padding: 4rem 2%;
   }
   
-  .content-wrapper-wide {
+  .production-section .content-wrapper-wide {
     gap: 1rem;
-  }
-
-    .text-content {
-    padding: 2rem;  /* Add padding on all sides */
+    flex-direction: column !important;  /* Must use same specific selector */
   }
   
-  .chart-placeholder {
-    height: 50vh;
+  .production-section .text-content {
+    padding: 2rem;
   }
+  
+  .production-section .chart-container {
+    height: 50vh;
+    min-height: 400px;
+    width: 100% !important;  /* Override flex */
+    flex: none !important;  /* Disable flex on mobile */
+  }
+
+  .chart-container text {
+    font-size: 0.95rem !important; /* Reduce all chart text */
+  }
+  
   
   /* HEAP SECTION - Different bottom approach */
   .heap-wrapper {
@@ -582,7 +680,7 @@ strong {
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -598,7 +696,27 @@ strong {
     flex-shrink: 0;
  
   }
+    .silhouette-container {
+    left: 45%;
+    width: 50%;
+    height: 300vh;  /* INCREASED: extends into step 5 on mobile */
+    z-index: 1;  /* BELOW text */
+  }
   
+  .person-silhouette-scroll {
+    height: 100vh;
+  }
+  
+  .person-silhouette-scroll img {
+    bottom: 0;
+    left: 0;
+    height: 35vh;
+  }
+
+.comparison-visual {
+  width: auto;
+  height: 30vh; }
+
   /* HEAP TEXT */
   .heap-step {
     min-height: 120vh;
@@ -610,12 +728,11 @@ strong {
   .text-container-right {
     width: 100%;
     padding: 5vh 0.5rem 5vh 0.5rem;
+     z-index: 2;
+     position: relative;
   }
   
-  .person-silhouette,
-  .comparison-visual {
-    margin-left: 0;
-  }
+
   
   /* ALLUVIAL SECTION - MATCH HEAP WIDTH EXACTLY */
   .alluvial-wrapper {

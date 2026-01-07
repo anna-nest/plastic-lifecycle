@@ -1,16 +1,21 @@
 // ===== PLASTIC PRODUCTION ANIMATED CHART =====
 
 class PlasticProductionChart {
-  constructor(containerId) {
-    this.containerId = containerId;
-    this.container = document.getElementById(containerId);
-    this.svg = null;
-    this.width = 0;
-    this.height = 0;
-    this.margin = { top: 40, right: 30, bottom: 60, left: 70 };  // Adjusted margins
-    this.animationProgress = 0;
-    this.isAnimating = false;
-    this.animationId = null;
+ constructor(containerId) {
+  this.containerId = containerId;
+  this.container = document.getElementById(containerId);
+  this.svg = null;
+  this.width = 0;
+  this.height = 0;
+  this.isMobile = window.innerWidth <= 768;
+  
+  this.margin = { 
+    top: this.isMobile ? 80 : 40,
+    right: 30, 
+    bottom: 70,
+    left: this.isMobile ? 50 : 70
+  };
+  
     
     // Data: Global plastic production 1950-2019 (million tonnes)
     this.data = [
@@ -127,16 +132,29 @@ class PlasticProductionChart {
         return this.getTotalLength();
       });
     
-    // Add title
-    this.svg.append('text')
-      .attr('x', rect.width / 2)
-      .attr('y', 25)
-      .attr('text-anchor', 'middle')
-      .attr('font-size', '1.8rem')  
-      .attr('font-weight', '400')
-      .attr('font-family', " League Spartan','Poppins', sans-serif")  // Match page font
-      .attr('fill', '#000')
-      .text('Global Plastic Production 1950-2020');
+// Add title
+this.svg.append('text')
+  .attr('x', rect.width / 2)
+  .attr('y', 25)
+  .attr('text-anchor', 'middle')
+  .attr('font-size', '1.8rem')  
+  .attr('font-weight', '400')
+  .attr('font-family', "'League Spartan','Poppins', sans-serif")
+  .attr('fill', '#000')
+  .text('Global Plastic Production 1950-2020');
+
+// Subtitle 
+if (this.isMobile) {
+  console.log('✓ Adding mobile subtitle'); // DEBUG
+  this.svg.append('text')
+    .attr('x', rect.width / 2)
+    .attr('y', 48)  // FIXED: below title (was 0)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', '0.75rem')
+    .attr('font-family', "'League Spartan','Poppins', sans-serif")
+    .attr('fill', '#666')
+    .text('(Million tonnes per year)');
+}
     
     console.log('✓ Chart initialized');
   }
@@ -177,7 +195,8 @@ class PlasticProductionChart {
       .style('font-family', "'League Spartan','Poppins', sans-serif"); 
     
     // Y axis label
-    this.chartGroup.append('text')
+      if (!this.isMobile) {
+        this.chartGroup.append('text')
       .attr('transform', 'rotate(-90)')
       .attr('x', -this.height / 2)
       .attr('y', -56)
@@ -186,7 +205,7 @@ class PlasticProductionChart {
       .attr('font-family', "'League Spartan','Poppins', sans-serif")
          .attr('fill', '#000')
       .text('Million Tonnes per Year');
-    
+      }
   }
   
   startAnimation() {

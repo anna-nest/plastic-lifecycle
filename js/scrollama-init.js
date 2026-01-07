@@ -245,13 +245,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Load images
 const bottleImg = new Image();
-bottleImg.src = 'assets/plastic-bottle.png';
+bottleImg.src = 'assets/plastic-bottle.PNG';
 
 const bagImg = new Image();
-bagImg.src = 'assets/plastic-bag.png';
+bagImg.src = 'assets/plastic-bag.PNG';
 
 const forkImg = new Image();
-forkImg.src = 'assets/plastic-fork.png';
+forkImg.src = 'assets/plastic-fork.PNG';
 
 let floatingObjects = [];
 let floatingAnimationId = null;

@@ -7,6 +7,7 @@
 
 html {
   scroll-behavior: smooth;
+   font-size: 18px; /* Up from default 16px = 12.5% increase */
 }
 
 body {
@@ -33,8 +34,8 @@ strong {
 }
 
 .emphasis {
-  font-weight: 500;
-  font-size: 1.15rem;
+  font-weight: 800;
+  font-size: 3rem;
 }
 
 .subtitle {
@@ -631,6 +632,7 @@ strong {
   .plastic-image {
     width: 150vw;
     height: 150vh;
+    transform: translateY(-50px) translateX(50px); /* Move right 30px, adjust as needed */
   }
 
   .scroll-cue .arrow {
@@ -710,7 +712,9 @@ strong {
   .person-silhouette-scroll img {
     bottom: 0;
     left: 0;
-    height: 35vh;
+    height: 30vh !important; /* REDUCED from 35vh, add !important */
+    width: auto !important; /* Make sure width is auto */
+    max-height: 30vh; /* backup */
   }
 
 .comparison-visual {

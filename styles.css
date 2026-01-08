@@ -783,34 +783,34 @@ strong {
   }
   
   #step-8 {
-    min-height: 35vh;
+    min-height: 30vh;
     padding-left: 60%;
     display: flex;
     align-items: center;
   }
   
     #step-8 .text-container-right {
-    margin-top: -20vh; /* Pull text up */
+    margin-top: -35vh; /* Pull text up */
       }
 
 
   #step-9 {
-    min-height: 80vh;
+    min-height: 75vh;
     padding-left: 55%;
   }
   
   #step-10 {
-    min-height: 70vh;
+    min-height: 65vh;
     padding-left: 52%;
   }
   
   #step-11 {
-    min-height: 60vh;
+    min-height: 55vh;
     padding-left: 40%;
   }
   
   #step-12 {
-    min-height: 60vh;
+    min-height: 55vh;
     padding-left: 23%;
   }
 

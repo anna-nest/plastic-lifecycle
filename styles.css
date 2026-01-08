@@ -169,12 +169,6 @@ strong {
   stroke-width: 1px; /* Thinner - was default 2px */
 }
 
-/* .chart-container .grid line {
-  stroke: #ddd;
-} */
-
-
-
 
 /* ===== HEAP SECTION (STEPS 3-7) ===== */
 .heap-wrapper {
@@ -635,7 +629,7 @@ strong {
   .plastic-image {
     width: 150vw;
     height: 150vh;
-    transform: translateY(-50px) translateX(50px); /* Move right 30px, adjust as needed */
+    transform: translateY(-30px) translateX(50px); /* Move right 30px, adjust as needed */
   }
 
   .scroll-cue .arrow {
@@ -643,7 +637,7 @@ strong {
 }
 
 .scroll-cue p {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
  }
   
   /* Production */
@@ -666,11 +660,16 @@ strong {
     width: 100% !important;  /* Override flex */
     flex: none !important;  /* Disable flex on mobile */
   }
-
-  .chart-container text {
-    font-size: 0.95rem !important; /* Reduce all chart text */
-  }
   
+  .chart-container .x-axis text,
+  .chart-container .y-axis text {
+    font-size: 1rem !important;
+  }
+
+    /* Target chart title (direct child of svg) */
+  .chart-container svg > text:first-of-type {
+    font-size: 1rem !important; /* Smaller title on mobile */
+  }
   
   /* HEAP SECTION - Different bottom approach */
   .heap-wrapper {
@@ -704,7 +703,7 @@ strong {
     .silhouette-container {
     left: 45%;
     width: 50%;
-    height: 300vh;  /* INCREASED: extends into step 5 on mobile */
+    height: 310vh;  /* INCREASED: extends into step 5 on mobile */
     z-index: 1;  /* BELOW text */
   }
   
@@ -739,7 +738,9 @@ strong {
      position: relative;
   }
   
-
+  #step-8 .text-container-right {
+    margin-top: -10vh; /* ADD THIS - pulls text up even more */
+  }
   
   /* ALLUVIAL SECTION - MATCH HEAP WIDTH EXACTLY */
   .alluvial-wrapper {

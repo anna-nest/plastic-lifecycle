@@ -335,7 +335,7 @@ strong {
 
 .alluvial-step {
   position: relative;
-  min-height: 244vh;
+  min-height: 248vh;
   padding-right: 4%;
   padding-top: 20vh;
 }
@@ -561,8 +561,8 @@ strong {
   }
   
   /* Text positioning - adjusted for smaller screen */
-  #step-8 { padding-left: 50%; }
-  #step-9 { padding-left: 50%; }
+  #step-8 { padding-left: 60%; }
+  #step-9 { padding-left: 60%; }
   #step-10 { padding-left: 47%; }
   #step-11 { padding-left: 42%; }
   #step-12 { padding-left: 20%; }

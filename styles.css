@@ -564,6 +564,9 @@ strong {
 /* ===== TABLET ALLUVIAL SECTION FIXES ===== */
 /* Replace lines 564-639 in your styles.css with this: */
 
+/* ===== TABLET ALLUVIAL SECTION FIXES ===== */
+/* Replace lines 564-639 in your styles.css with this: */
+
 /* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
   /* Keep production chart horizontal */
@@ -598,21 +601,28 @@ strong {
     padding: 10vh 0.5rem;
   }
   
-  /* Alluvial - MATCH HEAP WIDTH */
+  /* Alluvial - PROPORTIONAL TO HEAP */
   .alluvial-wrapper {
-    min-height: 750vh;
+    min-height: 900vh; /* Reduced from 1220vh to match heap proportions */
   }
   
   .alluvial-container-left {
-    width: calc(900vh * 0.0874); /* MATCH heap width exactly */
-    height: 750vh;
+    width: calc(900vh * 0.0874); /* Match heap width */
+    height: 900vh; /* Match wrapper height for proper scrolling */
     position: absolute;
     top: 0;
     left: 0;
   }
   
+  .alluvial-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: top left;
+  }
+  
   .alluvial-step {
-    min-height: 150vh;
+    min-height: 180vh; /* Reduced from 244vh (900vh ÷ 5 steps) */
     padding-right: 4%;
     padding-top: 20vh;
   }
@@ -624,7 +634,7 @@ strong {
   #step-11 { padding-left: 48%; }
   #step-12 { padding-left: 25%; }
   
-  /* Percentage numbers - WIDER SPREAD TO MATCH ALLUVIAL */
+  /* Percentage numbers - MATCH ALLUVIAL WIDTH */
   .percentages-sticky {
     top: 33vh;
     width: calc(900vh * 0.0874); /* Match alluvial width */
@@ -639,6 +649,17 @@ strong {
   #percent-50 { left: 38%; top: 0; }
   #percent-19 { left: 65%; top: 0; }
   #percent-9 { left: 78%; top: 0; }
+  
+  /* 
+  NOTE ON TURNING POINTS:
+  With 900vh total height and 180vh per step, the percentages turn at:
+  - Step 9 (9%):  at 180vh scroll (20% of total) - was 35% on desktop
+  - Step 10 (19%): at 360vh scroll (40% of total) - was 55% on desktop  
+  - Step 11 (50%): at 540vh scroll (60% of total) - was 75% on desktop
+  - Step 12 (22%): at 720vh scroll (80% of total) - was 95% on desktop
+  
+  The turning happens earlier relative to total scroll, but maintains proper proportion.
+  */
 }
 
 

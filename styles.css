@@ -529,12 +529,17 @@ strong {
   box-shadow: 0 6px 20px rgba(29, 49, 63, 0.288);
 }
 
+
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
- .production-section .content-wrapper-wide {  /* ADD .production-section prefix */
-    flex-direction: row !important; /* Explicitly keep row */
+
+/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Keep production chart side-by-side like desktop */
+  .production-section .content-wrapper-wide {
+    flex-direction: row !important; /* Keep horizontal layout */
   }
   
+  /* Adjust heap/alluvial widths for narrower screens */
   .heap-sticky {
     width: calc(500vh * 0.07 + 5vw);
     height: 60vh;
@@ -543,7 +548,7 @@ strong {
   }
   
   .alluvial-container-left {
-    width: calc(500vh * 0.07 + 5vw) !important;  /* Match heap - override the 60vw */
+    width: calc(500vh * 0.07 + 5vw) !important;
     position: relative;
     height: auto;
   }
@@ -558,31 +563,8 @@ strong {
     padding-left: 4%;
   }
   
-  /* .percentage-number {
-    font-size: 2rem; */
-  /* } */
-}
-
-
-/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
-@media (max-width: 1024px) and (min-width: 769px) {
-  /* Only applies between 769-1024px */
-  /* Keep production chart landscape */
-  .production-section .content-wrapper-wide {
-    flex-direction: row !important;
-  }
-  
-  /* Adjust heap/alluvial for smaller screens */
-  .heap-sticky {
-    width: calc(500vh * 0.07 + 5vw);
-  }
-  
-  .alluvial-container-left {
-    width: calc(500vh * 0.07 + 5vw) !important;
-  }
-  
-  .percentages-sticky {
-    width: calc(500vh * 0.07 + 5vw) !important;
+  .percentage-number {
+    font-size: 2rem;
   }
 }
 
@@ -815,7 +797,7 @@ strong {
 #step-10 .text-container-right,
  #step-11 .text-container-right,
   #step-12 .text-container-right {
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
     .solution-section {
     min-height: 80vh;

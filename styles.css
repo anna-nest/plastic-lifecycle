@@ -783,7 +783,7 @@ strong {
   }
   
   #step-8 {
-    min-height: 30vh;
+    min-height: 32vh;
     padding-left: 60%;
     display: flex;
     align-items: center;
@@ -805,12 +805,12 @@ strong {
   }
   
   #step-11 {
-    min-height: 55vh;
+    min-height: 50vh;
     padding-left: 40%;
   }
   
   #step-12 {
-    min-height: 55vh;
+    min-height: 50vh;
     padding-left: 23%;
   }
 

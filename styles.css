@@ -562,99 +562,6 @@ strong {
 
 
 /* ===== TABLET ALLUVIAL SECTION FIXES ===== */
-/* Replace lines 564-639 in your styles.css with this: */
-
-/* ===== COMPLETE TABLET FIX - REPLACE LINES 533-639 ===== */
-
-/* REMOVE the @media (max-width: 1024px) block at lines 533-561 
-   OR add this AFTER that block so it overrides */
-
-/* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Keep production chart horizontal */
-  .production-section .content-wrapper-wide {
-    flex-direction: row !important;
-  }
-  
-  /* Heap - TALLER pile */
-  .heap-wrapper {
-    min-height: 750vh;
-  }
-  
-  .heap-sticky {
-    width: calc(900vh * 0.0874) !important; /* IMPORTANT to override earlier rule */
-    height: auto !important;
-    min-height: 100vh !important;
-    max-height: 120vh !important;
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: flex-end;
-  }
-  
-  .heap-step {
-    min-height: 150vh;
-    padding-left: 55% !important; /* Override earlier 4% */
-    padding-right: 4%;
-    padding-top: 20vh;
-  }
-  
-  .text-container-right {
-    padding: 10vh 0.5rem;
-  }
-  
-  /* Alluvial - PROPORTIONAL TO HEAP */
-  .alluvial-wrapper {
-    min-height: 900vh;
-  }
-  
-  .alluvial-container-left {
-    width: calc(900vh * 0.0874) !important; /* Match heap width - IMPORTANT to override */
-    height: 900vh !important; /* Match wrapper height */
-    position: absolute !important; /* Override position: relative */
-    top: 0;
-    left: 0;
-  }
-  
-  .alluvial-image {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    object-position: top left;
-  }
-  
-  .alluvial-step {
-    min-height: 180vh; /* 900vh ÷ 5 steps */
-    padding-right: 4%;
-    padding-top: 20vh;
-  }
-  
-  /* Text positioning - override earlier 4% */
-  #step-8 { padding-left: 55% !important; }
-  #step-9 { padding-left: 55% !important; }
-  #step-10 { padding-left: 52% !important; }
-  #step-11 { padding-left: 48% !important; }
-  #step-12 { padding-left: 25% !important; }
-  
-  /* Percentage numbers - MATCH ALLUVIAL WIDTH */
-  .percentages-sticky {
-    top: 33vh;
-    width: calc(900vh * 0.0874) !important; /* Match alluvial - IMPORTANT to override */
-    z-index: 10;
-  }
-  
-  .percentage-number {
-    font-size: 2.3rem;
-  }
-  
-  /* Initial positions - SPREAD WIDER across full alluvial width */
-  #percent-22 { left: 8%; top: 0; }
-  #percent-50 { left: 38%; top: 0; }
-  #percent-19 { left: 65%; top: 0; }
-  #percent-9 { left: 78%; top: 0; }
-}
-
-
 
 /* TABLET LANDSCAPE - 769px to 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -721,10 +628,10 @@ strong {
     font-size: 2.3rem;
   }
   
-  #percent-22 { left: 8%; top: 0; }
-  #percent-50 { left: 38%; top: 0; }
-  #percent-19 { left: 65%; top: 0; }
-  #percent-9 { left: 78%; top: 0; }
+  #percent-22 { left: 5%; top: 0; }
+  #percent-50 { left: 36%; top: 0; }
+  #percent-19 { left: 67%; top: 0; }
+  #percent-9 { left: 84%; top: 0; }
 }
 
 

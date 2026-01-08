@@ -600,19 +600,19 @@ strong {
   
   /* Alluvial - MATCH HEAP WIDTH */
   .alluvial-wrapper {
-    min-height: 1220vh;
+    min-height: 750vh;
   }
   
   .alluvial-container-left {
     width: calc(900vh * 0.0874); /* MATCH heap width exactly */
-    height: 1220vh;
+    height: 750vh;
     position: absolute;
     top: 0;
     left: 0;
   }
   
   .alluvial-step {
-    min-height: 244vh;
+    min-height: 150vh;
     padding-right: 4%;
     padding-top: 20vh;
   }

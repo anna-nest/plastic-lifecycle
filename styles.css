@@ -532,39 +532,73 @@ strong {
 
 /* ===== RESPONSIVE ===== */
 
-/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
-@media (max-width: 1024px) and (min-width: 769px) {
-  /* Keep production chart side-by-side like desktop */
+/* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Keep production chart horizontal */
   .production-section .content-wrapper-wide {
-    flex-direction: row !important; /* Keep horizontal layout */
+    flex-direction: row !important;
   }
   
-  /* Adjust heap/alluvial widths for narrower screens */
+  /* Heap - keep desktop positioning */
+  .heap-wrapper {
+    min-height: 750vh; /* Desktop value */
+  }
+  
   .heap-sticky {
-    width: calc(500vh * 0.07 + 5vw);
-    height: 60vh;
-    min-height: 60vh;
-    max-height: 80vh;
+    width: calc(750vh * 0.07); /* Slightly narrower for tablet */
+    height: auto;
+    min-height: 100vh;
+    max-height: 120vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: flex-end; /* Bottom-aligned like desktop */
+  }
+  
+  .heap-step {
+    min-height: 150vh; /* Desktop value */
+    padding-left: 55%; /* Slightly less than desktop 60% */
+    padding-right: 4%;
+    padding-top: 20vh;
+  }
+  
+  .text-container-right {
+    padding: 10vh 0.5rem;
+  }
+  
+  /* Alluvial - keep desktop positioning */
+  .alluvial-wrapper {
+    min-height: 1220vh; /* Desktop value */
   }
   
   .alluvial-container-left {
-    width: calc(500vh * 0.07 + 5vw) !important;
-    position: relative;
-    height: auto;
+    width: calc(1220vh * 0.07); /* Narrower for tablet */
+    height: 1220vh;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
+  
+  .alluvial-step {
+    min-height: 244vh; /* Desktop value */
+    padding-right: 4%;
+    padding-top: 20vh;
+  }
+  
+  /* Keep desktop text positioning */
+  #step-8 { padding-left: 55%; }
+  #step-9 { padding-left: 55%; }
+  #step-10 { padding-left: 52%; }
+  #step-11 { padding-left: 48%; }
+  #step-12 { padding-left: 25%; }
   
   .percentages-sticky {
-    width: calc(500vh * 0.07 + 5vw) !important;
-    z-index: 10;
-  }
-  
-  .heap-step,
-  .alluvial-step {
-    padding-left: 4%;
+    top: 33vh; /* Desktop value */
+    width: 55%;
   }
   
   .percentage-number {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Between desktop and mobile */
   }
 }
 

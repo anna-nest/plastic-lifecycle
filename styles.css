@@ -561,12 +561,8 @@ strong {
 }
 
 
-/* ===== TABLET ALLUVIAL SECTION FIXES ===== */
 
-/* ===== COMPLETE TABLET FIX - REPLACE LINES 533-639 ===== */
-
-/* REMOVE the @media (max-width: 1024px) block at lines 533-561 
-   OR add this AFTER that block so it overrides */
+/* ===== RESPONSIVE ===== */
 
 /* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -652,7 +648,6 @@ strong {
   #percent-19 { left: 67%; top: 0; }     /* Moved right from 65% */
   #percent-9 { left: 84%; top: 0; }      /* Moved right from 78% */
 }
-
 
 
 /* ===== MOBILE FIXES ===== */

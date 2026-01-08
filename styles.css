@@ -545,7 +545,7 @@ strong {
   }
   
   .heap-sticky {
-    width: calc(900vh * 0.0874); /* INCREASED multiplier for bigger pile */
+    width: calc(800vh * 0.0874); /* INCREASED multiplier for bigger pile */
     height: auto;
     min-height: 100vh;
     max-height: 120vh;
@@ -572,7 +572,7 @@ strong {
   }
   
   .alluvial-container-left {
-    width: calc(1220vh * 0.0874); /* MATCH desktop ratio */
+    width: calc(800vh * 0.0874); /* MATCH desktop ratio */
     height: 1220vh;
     position: absolute;
     top: 0;
@@ -595,7 +595,7 @@ strong {
   /* Percentage numbers - ALIGN WITH TURNING POINTS */
   .percentages-sticky {
     top: 33vh;
-    width: 55%;
+    width: calc(800vh * 0.0874); /* MATCH heap/alluvial width */
   }
   
   .percentage-number {

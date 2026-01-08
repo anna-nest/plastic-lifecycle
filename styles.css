@@ -564,8 +564,10 @@ strong {
 /* ===== TABLET ALLUVIAL SECTION FIXES ===== */
 /* Replace lines 564-639 in your styles.css with this: */
 
-/* ===== TABLET ALLUVIAL SECTION FIXES ===== */
-/* Replace lines 564-639 in your styles.css with this: */
+/* ===== COMPLETE TABLET FIX - REPLACE LINES 533-639 ===== */
+
+/* REMOVE the @media (max-width: 1024px) block at lines 533-561 
+   OR add this AFTER that block so it overrides */
 
 /* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -580,7 +582,101 @@ strong {
   }
   
   .heap-sticky {
-    width: calc(900vh * 0.0874); /* INCREASED multiplier for bigger pile */
+    width: calc(900vh * 0.0874) !important; /* IMPORTANT to override earlier rule */
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: 120vh !important;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .heap-step {
+    min-height: 150vh;
+    padding-left: 55% !important; /* Override earlier 4% */
+    padding-right: 4%;
+    padding-top: 20vh;
+  }
+  
+  .text-container-right {
+    padding: 10vh 0.5rem;
+  }
+  
+  /* Alluvial - PROPORTIONAL TO HEAP */
+  .alluvial-wrapper {
+    min-height: 900vh;
+  }
+  
+  .alluvial-container-left {
+    width: calc(900vh * 0.0874) !important; /* Match heap width - IMPORTANT to override */
+    height: 900vh !important; /* Match wrapper height */
+    position: absolute !important; /* Override position: relative */
+    top: 0;
+    left: 0;
+  }
+  
+  .alluvial-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: top left;
+  }
+  
+  .alluvial-step {
+    min-height: 180vh; /* 900vh ÷ 5 steps */
+    padding-right: 4%;
+    padding-top: 20vh;
+  }
+  
+  /* Text positioning - override earlier 4% */
+  #step-8 { padding-left: 55% !important; }
+  #step-9 { padding-left: 55% !important; }
+  #step-10 { padding-left: 52% !important; }
+  #step-11 { padding-left: 48% !important; }
+  #step-12 { padding-left: 25% !important; }
+  
+  /* Percentage numbers - MATCH ALLUVIAL WIDTH */
+  .percentages-sticky {
+    top: 33vh;
+    width: calc(900vh * 0.0874) !important; /* Match alluvial - IMPORTANT to override */
+    z-index: 10;
+  }
+  
+  .percentage-number {
+    font-size: 2.3rem;
+  }
+  
+  /* Initial positions - SPREAD WIDER across full alluvial width */
+  #percent-22 { left: 8%; top: 0; }
+  #percent-50 { left: 38%; top: 0; }
+  #percent-19 { left: 65%; top: 0; }
+  #percent-9 { left: 78%; top: 0; }
+}
+
+
+/* ===== ALTERNATIVE APPROACH - RESTRUCTURE ALL BREAKPOINTS ===== */
+/* If the above doesn't work, replace ALL media queries (lines 533-639) with this structure: */
+
+/* MOBILE ONLY - applies to phones */
+@media (max-width: 768px) {
+  /* ... your existing mobile styles ... */
+}
+
+/* TABLET LANDSCAPE - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Production */
+  .production-section .content-wrapper-wide {
+    flex-direction: row !important;
+  }
+  
+  /* Heap */
+  .heap-wrapper {
+    min-height: 750vh;
+  }
+  
+  .heap-sticky {
+    width: calc(900vh * 0.0874);
     height: auto;
     min-height: 100vh;
     max-height: 120vh;
@@ -597,58 +693,73 @@ strong {
     padding-top: 20vh;
   }
   
-  .text-container-right {
-    padding: 10vh 0.5rem;
-  }
-  
-  /* Alluvial - PROPORTIONAL TO HEAP */
+  /* Alluvial */
   .alluvial-wrapper {
-    min-height: 900vh; /* Reduced from 1220vh to match heap proportions */
+    min-height: 900vh;
   }
   
   .alluvial-container-left {
-    width: calc(900vh * 0.0874); /* Match heap width */
-    height: 900vh; /* Match wrapper height for proper scrolling */
+    width: calc(900vh * 0.0874);
+    height: 900vh;
     position: absolute;
     top: 0;
     left: 0;
   }
   
-  .alluvial-image {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    object-position: top left;
+  .percentages-sticky {
+    top: 33vh;
+    width: calc(900vh * 0.0874);
+    z-index: 10;
   }
   
   .alluvial-step {
-    min-height: 180vh; /* Reduced from 244vh (900vh ÷ 5 steps) */
+    min-height: 180vh;
     padding-right: 4%;
     padding-top: 20vh;
   }
   
-  /* Text positioning */
   #step-8 { padding-left: 55%; }
   #step-9 { padding-left: 55%; }
   #step-10 { padding-left: 52%; }
   #step-11 { padding-left: 48%; }
   #step-12 { padding-left: 25%; }
   
-  /* Percentage numbers - MATCH ALLUVIAL WIDTH */
-  .percentages-sticky {
-    top: 33vh;
-    width: calc(900vh * 0.0874); /* Match alluvial width */
-  }
-  
   .percentage-number {
     font-size: 2.3rem;
   }
   
-  /* Initial positions - SPREAD WIDER across full alluvial width */
   #percent-22 { left: 8%; top: 0; }
   #percent-50 { left: 38%; top: 0; }
   #percent-19 { left: 65%; top: 0; }
   #percent-9 { left: 78%; top: 0; }
+}
+
+/* DESKTOP - 1025px and up */
+/* Your existing desktop styles apply here by default */
+
+
+/* ===== DEBUGGING TIP ===== */
+/* Add this temporarily to see which breakpoint is active: */
+body::before {
+  content: 'Desktop';
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  z-index: 9999;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  body::before { content: 'Mobile'; background: blue; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  body::before { content: 'Tablet'; background: green; }
+}
+/* Remove this debugging code once fixed */
   
   /* 
   NOTE ON TURNING POINTS:

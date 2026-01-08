@@ -532,7 +532,7 @@ strong {
 
 /* ===== RESPONSIVE ===== */
 
-//* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
+/* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
   /* Keep production chart horizontal */
   .production-section .content-wrapper-wide {

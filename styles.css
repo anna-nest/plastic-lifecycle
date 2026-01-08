@@ -728,10 +728,10 @@ strong {
     font-size: 2.3rem;
   }
   
-  #percent-22 { left: 8%; top: 0; }
-  #percent-50 { left: 38%; top: 0; }
-  #percent-19 { left: 65%; top: 0; }
-  #percent-9 { left: 78%; top: 0; }
+css#percent-22 { left: 6%; }   /* Was 8%, moved LEFT */
+#percent-50 { left: 38%; }  /* Unchanged */
+#percent-19 { left: 67%; }  /* Was 65%, moved RIGHT */
+#percent-9 { left: 84%; }   /* Was 78%, moved RIGHT */
 }
 
 /* DESKTOP - 1025px and up */

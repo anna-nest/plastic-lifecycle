@@ -335,7 +335,7 @@ strong {
 
 .alluvial-step {
   position: relative;
-  min-height: 248vh;
+  min-height: 244vh;
   padding-right: 4%;
   padding-top: 20vh;
 }
@@ -529,94 +529,57 @@ strong {
   box-shadow: 0 6px 20px rgba(29, 49, 63, 0.288);
 }
 
-
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+ .production-section .content-wrapper-wide {  /* ADD .production-section prefix */
+    flex-direction: row !important; /* Explicitly keep row */
+  }
+  
+  .heap-sticky {
+    width: calc(500vh * 0.07 + 5vw);
+    height: 60vh;
+    min-height: 60vh;
+    max-height: 80vh;
+  }
+  
+  .alluvial-container-left {
+    width: calc(500vh * 0.07 + 5vw) !important;  /* Match heap - override the 60vw */
+    position: relative;
+    height: auto;
+  }
+  
+  .percentages-sticky {
+    width: calc(500vh * 0.07 + 5vw) !important;
+    z-index: 10;
+  }
+  
+  .heap-step,
+  .alluvial-step {
+    padding-left: 4%;
+  }
+  
+}
+
 
 /* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Production chart horizontal */
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Only applies between 769-1024px */
+  /* Keep production chart landscape */
   .production-section .content-wrapper-wide {
     flex-direction: row !important;
   }
   
-  /* Heap - narrower for tablet */
-  .heap-wrapper {
-    min-height: 750vh;
-  }
-  
+  /* Adjust heap/alluvial for smaller screens */
   .heap-sticky {
-    width: calc(900vh * 0.0874);
-    height: auto;
-    min-height: 100vh;
-    max-height: 120vh;
-  }
-  
-  .heap-step {
-    padding-left: 65%; /* Text starts after heap */
-    padding-top: 20vh;
-  }
-  
-  /* Alluvial - match heap width */
-  .alluvial-wrapper {
-    min-height: 1220vh;
+    width: calc(500vh * 0.07 + 5vw);
   }
   
   .alluvial-container-left {
-    width: calc(900vh * 0.0874);
-    height: 1220vh;
+    width: calc(500vh * 0.07 + 5vw) !important;
   }
   
-  .alluvial-step {
-    min-height: 244vh;
-    padding-top: 20vh;
-  }
-  
-  /* Percentages sticky - match alluvial width */
   .percentages-sticky {
-    top: 33vh;
-    width: calc(900vh * 0.0874);
-  }
-  
-  .percentage-number {
-    font-size: 2.5rem;
-    margin-bottom: 2vh; /* Space below numbers */
-  }
-  
-  /* Initial positions - spread for 900vh width */
-  #percent-22 { left: 6%; }
-  #percent-50 { left: 34%; }
-  #percent-19 { left: 62%; }
-  #percent-9 { left: 74%; }
-  
-  /* Text positioning - start where numbers land */
-  #step-8 { 
-    padding-left: 65%;
-    padding-top: 15vh; /* Adjust vertical position */
-  }
-  
-  #step-9 { 
-    padding-left: 65%;
-    padding-top: 22vh; /* Adjust to align with number */
-  }
-  
-  #step-10 { 
-    padding-left: 58%;
-    padding-top: 22vh;
-  }
-  
-  #step-11 { 
-    padding-left: 53%;
-    padding-top: 22vh;
-  }
-  
-  #step-12 { 
-    padding-left: 28%;
-    padding-top: 22vh;
-  }
-  
-  /* Text container adjustments */
-  .text-container-right {
-    padding: 8vh 0.5rem;
+    width: calc(500vh * 0.07 + 5vw) !important;
   }
 }
 
@@ -849,7 +812,7 @@ strong {
 #step-10 .text-container-right,
  #step-11 .text-container-right,
   #step-12 .text-container-right {
-  margin-top: 2vh;
+  margin-top: 3vh;
 }
     .solution-section {
     min-height: 80vh;

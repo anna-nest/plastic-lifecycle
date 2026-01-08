@@ -561,6 +561,9 @@ strong {
 }
 
 
+/* ===== TABLET ALLUVIAL SECTION FIXES ===== */
+/* Replace lines 564-639 in your styles.css with this: */
+
 /* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
   /* Keep production chart horizontal */
@@ -595,13 +598,13 @@ strong {
     padding: 10vh 0.5rem;
   }
   
-  /* Alluvial */
+  /* Alluvial - MATCH HEAP WIDTH */
   .alluvial-wrapper {
     min-height: 1220vh;
   }
   
   .alluvial-container-left {
-    width: calc(1220vh * 0.0874); /* MATCH desktop ratio */
+    width: calc(900vh * 0.0874); /* MATCH heap width exactly */
     height: 1220vh;
     position: absolute;
     top: 0;
@@ -621,21 +624,21 @@ strong {
   #step-11 { padding-left: 48%; }
   #step-12 { padding-left: 25%; }
   
-  /* Percentage numbers - ALIGN WITH TURNING POINTS */
+  /* Percentage numbers - WIDER SPREAD TO MATCH ALLUVIAL */
   .percentages-sticky {
     top: 33vh;
-    width: 55%;
+    width: calc(900vh * 0.0874); /* Match alluvial width */
   }
   
   .percentage-number {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   
-  /* Adjust initial horizontal positions for tablet width */
-  #percent-22 { left: 5%; top: 0; } /* ADD top: 0 for vertical alignment */
-  #percent-50 { left: 32%; top: 0; }
-  #percent-19 { left: 58%; top: 0; } /* Adjust for narrower screen */
-  #percent-9 { left: 70%; top: 0; }
+  /* Initial positions - SPREAD WIDER across full alluvial width */
+  #percent-22 { left: 8%; top: 0; }
+  #percent-50 { left: 38%; top: 0; }
+  #percent-19 { left: 65%; top: 0; }
+  #percent-9 { left: 78%; top: 0; }
 }
 
 

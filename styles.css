@@ -335,7 +335,7 @@ strong {
 
 .alluvial-step {
   position: relative;
-  min-height: 245vh;
+  min-height: 248vh;
   padding-right: 4%;
   padding-top: 20vh;
 }
@@ -783,7 +783,7 @@ strong {
   }
   
   #step-8 {
-    min-height: 32vh;
+    min-height: 35vh;
     padding-left: 60%;
     display: flex;
     align-items: center;
@@ -795,12 +795,12 @@ strong {
 
 
   #step-9 {
-    min-height: 75vh;
+    min-height: 70vh;
     padding-left: 55%;
   }
   
   #step-10 {
-    min-height: 65vh;
+    min-height: 50vh;
     padding-left: 52%;
   }
   

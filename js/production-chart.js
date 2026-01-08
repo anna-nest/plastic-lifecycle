@@ -13,31 +13,81 @@ class PlasticProductionChart {
     top: this.isMobile ? 80 : 40,
     right: 30, 
     bottom: 70,
-    left: this.isMobile ? 50 : 70
+    left: this.isMobile ? 35 : 70
   };
   
     
     // Data: Global plastic production 1950-2019 (million tonnes)
     this.data = [
-      {year: 1950, production: 2},
-      {year: 1955, production: 5},
-      {year: 1960, production: 8},
-      {year: 1965, production: 15},
-      {year: 1970, production: 30},
-      {year: 1975, production: 45},
-      {year: 1980, production: 70},
-      {year: 1985, production: 100},
-      {year: 1990, production: 120},
-      {year: 1995, production: 155},
-      {year: 2000, production: 213},
-      {year: 2002, production: 230},
-      {year: 2005, production: 260},
-      {year: 2008, production: 280},
-      {year: 2010, production: 310},
-      {year: 2012, production: 330},
-      {year: 2015, production: 381},
-      {year: 2017, production: 400},
-      {year: 2019, production: 460},
+      { year: 1950, production: 2 },
+  { year: 1951, production: 2 },
+  { year: 1952, production: 2 },
+  { year: 1953, production: 3 },
+  { year: 1954, production: 3 },
+  { year: 1955, production: 4 },
+  { year: 1956, production: 5 },
+  { year: 1957, production: 5 },
+  { year: 1958, production: 6 },
+  { year: 1959, production: 7 },
+  { year: 1960, production: 8 },
+  { year: 1961, production: 9 },
+  { year: 1962, production: 11 },
+  { year: 1963, production: 13 },
+  { year: 1964, production: 15 },
+  { year: 1965, production: 17 },
+  { year: 1966, production: 20 },
+  { year: 1967, production: 23 },
+  { year: 1968, production: 27 },
+  { year: 1969, production: 32 },
+  { year: 1970, production: 35 },
+  { year: 1971, production: 38 },
+  { year: 1972, production: 44 },
+  { year: 1973, production: 51 },
+  { year: 1975, production: 46 },
+  { year: 1976, production: 54 },
+  { year: 1977, production: 59 },
+  { year: 1978, production: 64 },
+  { year: 1979, production: 71 },
+  { year: 1980, production: 75.027034 },
+  { year: 1981, production: 76.420327 },
+  { year: 1982, production: 77.996697 },
+  { year: 1983, production: 85.619551 },
+  { year: 1984, production: 91.877654 },
+  { year: 1985, production: 96.966291 },
+  { year: 1986, production: 103.158013 },
+  { year: 1987, production: 111.850880 },
+  { year: 1988, production: 119.173589 },
+  { year: 1989, production: 122.933314 },
+  { year: 1990, production: 129.886737 },
+  { year: 1991, production: 134.870156 },
+  { year: 1992, production: 143.569076 },
+  { year: 1993, production: 149.685466 },
+  { year: 1994, production: 164.447199 },
+  { year: 1995, production: 170.917041 },
+  { year: 1996, production: 183.439531 },
+  { year: 1997, production: 197.227888 },
+  { year: 1998, production: 206.397022 },
+  { year: 1999, production: 222.144900 },
+  { year: 2000, production: 234.008200 },
+  { year: 2001, production: 239.907338 },
+  { year: 2002, production: 255.480225 },
+  { year: 2003, production: 266.323257 },
+  { year: 2004, production: 283.507666 },
+  { year: 2005, production: 291.788333 },
+  { year: 2006, production: 310.465381 },
+  { year: 2007, production: 328.116044 },
+  { year: 2008, production: 312.909115 },
+  { year: 2009, production: 321.168504 },
+  { year: 2010, production: 348.880437 },
+  { year: 2011, production: 363.269735 },
+  { year: 2012, production: 377.300794 },
+  { year: 2013, production: 393.737358 },
+  { year: 2014, production: 401.032037 },
+  { year: 2015, production: 412.751180 },
+  { year: 2016, production: 419.969720 },
+  { year: 2017, production: 432.184213 },
+  { year: 2018, production: 446.200006 },
+  { year: 2019, production: 459.745871 },
     {year: 2020, production: 435},
 
     ];
@@ -150,7 +200,7 @@ if (this.isMobile) {
     .attr('x', rect.width / 2)
     .attr('y', 48)  // FIXED: below title (was 0)
     .attr('text-anchor', 'middle')
-    .attr('font-size', '0.75rem')
+    .attr('font-size', '0.8rem')
     .attr('font-family', "'League Spartan','Poppins', sans-serif")
     .attr('fill', '#666')
     .text('(Million tonnes per year)');
@@ -174,14 +224,37 @@ if (this.isMobile) {
       .style('font-family', "'League Spartan','Poppins', sans-serif");  
     
       // ADD SOURCE 
-    this.chartGroup.append('text')
-      .attr('x', 0)  // Left-aligned
-      .attr('y', this.height + 55)
-      .attr('text-anchor', 'start')
-      .attr('font-size', '0.9rem')  // Small font
-      .attr('font-family', " 'League Spartan','Poppins', sans-serif")
-      .attr('fill', '#666')  // Gray color
-      .text('Source: OECD (2024), 2020 is the latest consolidated data');
+if (this.isMobile) {
+  // Line 1: Source
+  this.chartGroup.append('text')
+    .attr('x', 0)
+    .attr('y', this.height + 50)
+    .attr('text-anchor', 'start')
+    .attr('font-size', '0.8rem')
+    .attr('font-family', "'League Spartan','Poppins', sans-serif")
+    .attr('fill', '#666')
+    .text('Source: OECD, 2024');
+  
+  // Line 2: Note about 2020
+  this.chartGroup.append('text')
+    .attr('x', 0)
+    .attr('y', this.height + 68)  // 13px below first line
+    .attr('text-anchor', 'start')
+    .attr('font-size', '0.8rem')
+    .attr('font-family', "'League Spartan','Poppins', sans-serif")
+    .attr('fill', '#666')
+     .text('(2020 is the latest consolidated data)');
+} else {
+  // Desktop: single line
+  this.chartGroup.append('text')
+    .attr('x', 0)
+    .attr('y', this.height + 55)
+    .attr('text-anchor', 'start')
+    .attr('font-size', '0.9rem')
+    .attr('font-family', "'League Spartan','Poppins', sans-serif")
+    .attr('fill', '#666')
+    .text('Source: OECD (2024), 2020 is the latest consolidated data');
+}
 
     // Y axis
     const yAxis = d3.axisLeft(this.yScale)

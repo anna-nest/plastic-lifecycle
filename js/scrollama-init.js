@@ -24,38 +24,40 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ===== CHOREOGRAPHED PERCENTAGE ANIMATIONS =====
 
-  const isMobile = window.innerWidth <= 768; 
+  const isMobile = window.innerWidth <= 768;
+  const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024; 
+  
 
-  const percentages = {
-    '22': { 
-      element: document.getElementById('percent-22'),
-      activeStep: 12,
-      initialLeft: '5%',
-       finalLeft: isMobile ? '23%' : '28%',  // Shift left on mobile
-      extracted: false
-    },
-    '50': { 
-      element: document.getElementById('percent-50'),
-      activeStep: 11,
-      initialLeft: '32%',
-      finalLeft: isMobile ? '40%' : '52%',  // Shift left on mobile
-      extracted: false
-    },
-    '19': { 
-      element: document.getElementById('percent-19'),
-      activeStep: 10,
-      initialLeft: '58%',
-      finalLeft: isMobile ? '52%' : '57%',  // Shift left on mobile
-      extracted: false
-    },
-    '9': { 
-      element: document.getElementById('percent-9'),
-      activeStep: 9,
-      initialLeft: '71%',
-      finalLeft: isMobile ? '55%' : '60%',  // Shift left on mobile
-      extracted: false
-    }
-  };
+ const percentages = {
+  '22': { 
+    element: document.getElementById('percent-22'),
+    activeStep: 12,
+    initialLeft: isMobile ? '5%' : (isTablet ? '5%' : '5%'),      // Changed from 8% to 6%
+    finalLeft: isMobile ? '23%' : (isTablet ? '25%' : '28%'),
+    extracted: false
+  },
+  '50': { 
+    element: document.getElementById('percent-50'),
+    activeStep: 11,
+    initialLeft: isMobile ? '32%' : (isTablet ? '36%' : '32%'),   // Kept at 38%
+    finalLeft: isMobile ? '40%' : (isTablet ? '48%' : '52%'),
+    extracted: false
+  },
+  '19': { 
+    element: document.getElementById('percent-19'),
+    activeStep: 10,
+    initialLeft: isMobile ? '62%' : (isTablet ? '67%' : '58%'),   // Changed from 65% to 67%
+    finalLeft: isMobile ? '52%' : (isTablet ? '52%' : '57%'),
+    extracted: false
+  },
+  '9': { 
+    element: document.getElementById('percent-9'),
+    activeStep: 9,
+    initialLeft: isMobile ? '78%' : (isTablet ? '84%' : '71%'),   // Changed from 78% to 82%
+    finalLeft: isMobile ? '55%' : (isTablet ? '55%' : '60%'),
+    extracted: false
+  }
+};
 
   let productionChart = null;
   let debrisReveal = null;

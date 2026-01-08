@@ -561,20 +561,87 @@ strong {
 }
 
 
-/* ===== TABLET LANDSCAPE (769px - 1024px) ===== */
-@media (max-width: 1024px) and (min-width: 769px) {
-  /* Only applies between 769-1024px */
-  /* Keep production chart landscape */
+/* ===== TABLET LANDSCAPE (769px - 1024px) - DESKTOP-LIKE ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Keep production chart horizontal */
   .production-section .content-wrapper-wide {
     flex-direction: row !important;
   }
   
+  /* Heap - TALLER pile */
+  .heap-wrapper {
+    min-height: 750vh;
+  }
+  
+  .heap-sticky {
+    width: calc(900vh * 0.0874); /* INCREASED multiplier for bigger pile */
+    height: auto;
+    min-height: 100vh;
+    max-height: 120vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .heap-step {
+    min-height: 150vh;
+    padding-left: 55%;
+    padding-right: 4%;
+    padding-top: 20vh;
+  }
+  
+  .text-container-right {
+    padding: 10vh 0.5rem;
+  }
+  
+  /* Alluvial */
+  .alluvial-wrapper {
+    min-height: 1220vh;
+  }
+  
+  .alluvial-container-left {
+    width: calc(1220vh * 0.0874); /* MATCH desktop ratio */
+    height: 1220vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .alluvial-step {
+    min-height: 244vh;
+    padding-right: 4%;
+    padding-top: 20vh;
+  }
+  
+  /* Text positioning */
+  #step-8 { padding-left: 55%; }
+  #step-9 { padding-left: 55%; }
+  #step-10 { padding-left: 52%; }
+  #step-11 { padding-left: 48%; }
+  #step-12 { padding-left: 25%; }
+  
+  /* Percentage numbers - ALIGN WITH TURNING POINTS */
+  .percentages-sticky {
+    top: 33vh;
+    width: 55%;
+  }
+  
+  .percentage-number {
+    font-size: 2.5rem;
+  }
+  
+  /* Adjust initial horizontal positions for tablet width */
+  #percent-22 { left: 5%; top: 0; } /* ADD top: 0 for vertical alignment */
+  #percent-50 { left: 32%; top: 0; }
+  #percent-19 { left: 58%; top: 0; } /* Adjust for narrower screen */
+  #percent-9 { left: 70%; top: 0; }
 }
 
 
 /* ===== MOBILE FIXES ===== */
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   /* GENERAL */
 
  :root {

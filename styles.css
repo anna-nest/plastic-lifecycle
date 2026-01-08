@@ -569,24 +569,12 @@ strong {
     flex-direction: row !important;
   }
   
-  /* Adjust heap/alluvial for smaller screens */
-  .heap-sticky {
-    width: calc(500vh * 0.07 + 5vw);
-  }
-  
-  .alluvial-container-left {
-    width: calc(500vh * 0.07 + 5vw) !important;
-  }
-  
-  .percentages-sticky {
-    width: calc(500vh * 0.07 + 5vw) !important;
-  }
 }
 
 
 /* ===== MOBILE FIXES ===== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   /* GENERAL */
 
  :root {

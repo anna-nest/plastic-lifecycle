@@ -629,7 +629,7 @@ strong {
   .plastic-image {
     width: 150vw;
     height: 150vh;
-    transform: translateY(-30px) translateX(50px); /* Move right 30px, adjust as needed */
+    transform: translateY(-50px) translateX(50px); /* Move right 50px, adjust as needed */
   }
 
   .scroll-cue .arrow {
@@ -663,7 +663,7 @@ strong {
   
   .chart-container .x-axis text,
   .chart-container .y-axis text {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
   }
 
     /* Target chart title (direct child of svg) */
@@ -738,16 +738,12 @@ strong {
      position: relative;
   }
   
-  #step-8 .text-container-right {
-    margin-top: -10vh; /* ADD THIS - pulls text up even more */
-  }
-  
+ 
   /* ALLUVIAL SECTION - MATCH HEAP WIDTH EXACTLY */
   .alluvial-wrapper {
     min-height: var(--alluvial-height);
     margin-top: -5px;
   }
-  
   
   .alluvial-container-left {
     width: var(--mobile-image-width);  /* Same calculation */
@@ -791,6 +787,11 @@ strong {
     padding-left: 60%;
     display: flex;
     align-items: center;
+  }
+  
+    #step-8 .text-container-right {
+    margin-top: -10vh; /* Pull text up */
+    margin-bottom: 10vh; /* Push next step down by same amount */
   }
   
   #step-9 {

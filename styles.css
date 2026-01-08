@@ -337,7 +337,7 @@ strong {
   position: relative;
   min-height: 244vh;
   padding-right: 4%;
-  /* padding-top: 20vh; */
+  padding-top: 20vh;
 }
 
 /* Progressive leftward movement of text */
@@ -770,7 +770,7 @@ strong {
   .percentage-number {
     font-size: 1.5rem;
     z-index: 10;
-  }
+      }
   
   #percent-22 { left: 5%; }
   #percent-50 { left: 32%; }
@@ -779,6 +779,7 @@ strong {
   
   .alluvial-step {
     padding-right: 0%;
+    padding-top: 0vh;
     min-height: 80vh;
     position: relative;
     z-index: 5;
@@ -811,7 +812,9 @@ strong {
         padding-left: 23%;
   }
 #step-9 .text-container-right,
-#step-10 .text-container-right {
+#step-10 .text-container-right,
+ #step-11 .text-container-right,
+  #step-12 .text-container-right {
   margin-top: 5vh;
 }
     .solution-section {

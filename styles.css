@@ -783,13 +783,17 @@ strong {
   }
   
   #step-8 {
-    min-height: 40vh;
+    min-height: 35vh;
     padding-left: 60%;
     display: flex;
     align-items: center;
   }
   
-  
+    #step-8 .text-container-right {
+    margin-top: -20vh; /* Pull text up */
+      }
+
+
   #step-9 {
     min-height: 80vh;
     padding-left: 55%;

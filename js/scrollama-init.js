@@ -444,15 +444,7 @@ function stopFloatingObjects() {
       productionChart.startAnimation();
     }
 
-      // // Handle alluvial section
-      // if (stepId === 'step-8') {
-      //   showAllPercentages();
-      //   currentAlluvialStep = 8;
-      // } else if (stepId.startsWith('step-') && parseInt(stepId.split('-')[1]) >= 9 && parseInt(stepId.split('-')[1]) <= 12) {
-      //   currentAlluvialStep = parseInt(stepId.split('-')[1]);
-      // }
-      
-
+    
       // Handle alluvial section
 if (stepId === 'step-8') {
   const direction = response.direction;

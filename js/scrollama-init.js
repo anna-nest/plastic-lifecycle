@@ -48,14 +48,14 @@ window.addEventListener('scroll', () => {
   '19': { 
     element: document.getElementById('percent-19'),
     activeStep: 10,
-    initialLeft: isMobile ? '62%' : (isTablet ? '67%' : '58%'),   // Changed from 65% to 67%
+    initialLeft: isMobile ? '62%' : (isTablet ? '67%' : '62%'),   // Changed from 65% to 67%
     finalLeft: isMobile ? '52%' : (isTablet ? '52%' : '57%'),
     extracted: false
   },
   '9': { 
     element: document.getElementById('percent-9'),
     activeStep: 9,
-    initialLeft: isMobile ? '78%' : (isTablet ? '84%' : '73%'),   // Changed from 78% to 82%
+    initialLeft: isMobile ? '78%' : (isTablet ? '84%' : '74%'),   // Changed from 78% to 82%
     finalLeft: isMobile ? '55%' : (isTablet ? '55%' : '60%'),
     extracted: false
   }

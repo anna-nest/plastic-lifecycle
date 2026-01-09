@@ -55,7 +55,7 @@ window.addEventListener('scroll', () => {
   '9': { 
     element: document.getElementById('percent-9'),
     activeStep: 9,
-    initialLeft: isMobile ? '78%' : (isTablet ? '84%' : '71%'),   // Changed from 78% to 82%
+    initialLeft: isMobile ? '78%' : (isTablet ? '84%' : '73%'),   // Changed from 78% to 82%
     finalLeft: isMobile ? '55%' : (isTablet ? '55%' : '60%'),
     extracted: false
   }

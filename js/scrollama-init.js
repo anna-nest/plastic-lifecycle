@@ -34,7 +34,7 @@ window.addEventListener('scroll', () => {
   '22': { 
     element: document.getElementById('percent-22'),
     activeStep: 12,
-    initialLeft: isMobile ? '4%' : (isTablet ? '5%' : '5%'),      // Changed from 8% to 6%
+    initialLeft: isMobile ? '3%' : (isTablet ? '5%' : '5%'),      // Changed from 8% to 6%
     finalLeft: isMobile ? '23%' : (isTablet ? '25%' : '28%'),
     extracted: false
   },
@@ -48,7 +48,7 @@ window.addEventListener('scroll', () => {
   '19': { 
     element: document.getElementById('percent-19'),
     activeStep: 10,
-    initialLeft: isMobile ? '62%' : (isTablet ? '67%' : '62%'),   // Changed from 65% to 67%
+    initialLeft: isMobile ? '61%' : (isTablet ? '67%' : '62%'),   // Changed from 65% to 67%
     finalLeft: isMobile ? '52%' : (isTablet ? '52%' : '57%'),
     extracted: false
   },

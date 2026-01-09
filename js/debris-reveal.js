@@ -14,7 +14,7 @@ class DebrisReveal {
     this.fadeProgress = 1;
     
     this.config = {
-      rotationSpeed: 0.07,
+      rotationSpeed: 0.09,
       initialSize: 2, // 5% of viewport
       initialOpacity: 0.1, // starts at 20%
       maxOpacity: 1, // grows to 100%

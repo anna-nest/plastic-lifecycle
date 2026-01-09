@@ -13,13 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('✓ Found', steps.length, 'steps');
   
   
-  // ===== HIDE SCROLL CUE =====
-  const scrollCue = document.querySelector('.scroll-cue');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 200 && scrollCue) {
-      scrollCue.style.opacity = '0';
-    }
-  });
+// ===== HIDE/SHOW SCROLL CUE =====
+const scrollCue = document.querySelector('.scroll-cue');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200 && scrollCue) {
+    scrollCue.style.opacity = '0';
+  } else if (window.scrollY <= 200 && scrollCue) {
+    scrollCue.style.opacity = '0.9'; // Match the initial opacity from CSS
+  }
+});
   
   
   // ===== CHOREOGRAPHED PERCENTAGE ANIMATIONS =====

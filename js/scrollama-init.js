@@ -19,7 +19,7 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 200 && scrollCue) {
     scrollCue.style.opacity = '0';
   } else if (window.scrollY <= 200 && scrollCue) {
-    scrollCue.style.opacity = '0.9'; // Match the initial opacity from CSS
+    scrollCue.style.opacity = '1'; // Match the initial opacity from CSS
   }
 });
   
@@ -150,6 +150,38 @@ window.addEventListener('scroll', () => {
   }
   
   
+// Reset percentages back to sticky container when scrolling back
+function resetPercentages() {
+  console.log('🔄 Resetting percentages to initial state');
+  
+  const stickyContainer = document.getElementById('percentages-container');
+  const wrapper = document.querySelector('.alluvial-wrapper');
+  
+  Object.keys(percentages).forEach(pValue => {
+    const p = percentages[pValue];
+    
+    if (!p.element || !p.extracted) return;
+    
+    // Remove from wrapper
+    if (p.element.parentElement === wrapper) {
+      wrapper.removeChild(p.element);
+    }
+    
+    // Add back to sticky container
+    stickyContainer.appendChild(p.element);
+    
+    // Reset styles
+    p.element.style.position = 'absolute';
+    p.element.style.top = '0';
+    p.element.style.left = p.initialLeft;
+    p.element.classList.remove('animating');
+    p.element.classList.remove('visible');
+    
+    // Reset extracted flag
+    p.extracted = false;
+  });
+}
+
   // ===== PARTICLES WITH IRREGULAR POLYGONS =====
   let particlesInitialized = false;
   
@@ -505,6 +537,11 @@ if (stepId === 'step-16' && floatingObjects.length > 0) {
   .onStepExit((response) => {
     const stepId = response.element.id;
     const direction = response.direction;
+
+      // Reset percentages when scrolling back up past step 8
+  if (stepId === 'step-8' && direction === 'up') {
+    resetPercentages();
+  }
     
     // Hide when scrolling back
     if (stepId === 'step-16' && direction === 'up') {

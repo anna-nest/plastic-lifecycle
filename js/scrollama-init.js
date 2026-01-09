@@ -175,8 +175,7 @@ function resetPercentages() {
     p.element.style.top = '0';
     p.element.style.left = p.initialLeft;
     p.element.classList.remove('animating');
-    p.element.classList.remove('visible');
-    
+       
     // Reset extracted flag
     p.extracted = false;
   });

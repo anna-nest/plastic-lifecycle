@@ -175,7 +175,8 @@ function resetPercentages() {
     p.element.style.top = '0';
     p.element.style.left = p.initialLeft;
     p.element.classList.remove('animating');
-       
+    p.element.classList.remove('visible');
+    
     // Reset extracted flag
     p.extracted = false;
   });
@@ -443,14 +444,32 @@ function stopFloatingObjects() {
       productionChart.startAnimation();
     }
 
-      // Handle alluvial section
-      if (stepId === 'step-8') {
-        showAllPercentages();
-        currentAlluvialStep = 8;
-      } else if (stepId.startsWith('step-') && parseInt(stepId.split('-')[1]) >= 9 && parseInt(stepId.split('-')[1]) <= 12) {
-        currentAlluvialStep = parseInt(stepId.split('-')[1]);
-      }
+      // // Handle alluvial section
+      // if (stepId === 'step-8') {
+      //   showAllPercentages();
+      //   currentAlluvialStep = 8;
+      // } else if (stepId.startsWith('step-') && parseInt(stepId.split('-')[1]) >= 9 && parseInt(stepId.split('-')[1]) <= 12) {
+      //   currentAlluvialStep = parseInt(stepId.split('-')[1]);
+      // }
       
+
+      // Handle alluvial section
+if (stepId === 'step-8') {
+  const direction = response.direction;
+  
+  if (direction === 'down') {
+    // Entering from above (scrolling down) - show percentages
+    showAllPercentages();
+  } else if (direction === 'up') {
+    // Entering from below (scrolling back up) - reset percentages
+    resetPercentages();
+  }
+  
+  currentAlluvialStep = 8;
+} else if (stepId.startsWith('step-') && parseInt(stepId.split('-')[1]) >= 9 && parseInt(stepId.split('-')[1]) <= 12) {
+  currentAlluvialStep = parseInt(stepId.split('-')[1]);
+}
+
       // Start particles IMMEDIATELY when step-13 enters
       if (stepId === 'step-13') {
         console.log('🌊 Starting particles on transition NOW');
@@ -537,11 +556,7 @@ if (stepId === 'step-16' && floatingObjects.length > 0) {
     const stepId = response.element.id;
     const direction = response.direction;
 
-      // Reset percentages when scrolling back up past step 8
-  if (stepId === 'step-8' && direction === 'up') {
-    resetPercentages();
-  }
-    
+   
     // Hide when scrolling back
     if (stepId === 'step-16' && direction === 'up') {
       if (debrisReveal) {

@@ -12,7 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
   const steps = document.querySelectorAll('.step');
   console.log('✓ Found', steps.length, 'steps');
   
-  
+  // Blue overlay for intro
+const blueOverlay = document.getElementById('blue-overlay');
+
+  // NEW: Hide blue overlay on load if already scrolled past step 2
+  const step2 = document.getElementById('step-2');
+  if (step2 && blueOverlay) {
+    const step2Rect = step2.getBoundingClientRect();
+    // If step 2 has already scrolled past (is above viewport top)
+    if (step2Rect.bottom < 0) {
+      blueOverlay.style.display = 'none';
+      console.log('✓ Blue overlay hidden (loaded past step 2)');
+    }
+  }
+
+
 // ===== HIDE/SHOW SCROLL CUE =====
 const scrollCue = document.querySelector('.scroll-cue');
 window.addEventListener('scroll', () => {
@@ -281,13 +295,13 @@ function resetPercentages() {
 
 // Load images
 const bottleImg = new Image();
-bottleImg.src = 'assets/plastic-bottle.PNG';
+bottleImg.src = 'assets/plastic-bottle2.PNG';
 
 const bagImg = new Image();
-bagImg.src = 'assets/plastic-bag.PNG';
+bagImg.src = 'assets/plastic-bag2.PNG';
 
 const forkImg = new Image();
-forkImg.src = 'assets/plastic-fork.PNG';
+forkImg.src = 'assets/plastic-fork2.PNG';
 
 let floatingObjects = [];
 let floatingAnimationId = null;
@@ -298,13 +312,13 @@ function createFloatingObjects(canvas) {
   
   for (let i = 0; i < 5; i++) {
     // 5 bottles
-    const size = canvas.height * 0.08;
+    const size = canvas.height * 0.11;
     floatingObjects.push({
       img: bottleImg,
       x: size + Math.random() * (canvas.width - size * 2),  // FIXED: margin on both sides
       y: size + Math.random() * (canvas.height - size * 2),  // FIXED: margin top/bottom
       size: size,
-      baseX: 0,
+           baseX: 0,
       baseY: 0,
       rotation: Math.random() * 360,
       baseRotation: Math.random() * 360,
@@ -316,7 +330,7 @@ function createFloatingObjects(canvas) {
     });
     
     // 5 bags
-    const bagSize = canvas.height * 0.1;
+    const bagSize = canvas.height * 0.14;
     floatingObjects.push({
       img: bagImg,
       x: bagSize + Math.random() * (canvas.width - bagSize * 2),  // FIXED
@@ -334,7 +348,7 @@ function createFloatingObjects(canvas) {
     });
     
     // 5 forks
-    const forkSize = canvas.height * 0.06;
+    const forkSize = canvas.height * 0.1;
     floatingObjects.push({
       img: forkImg,
       x: forkSize + Math.random() * (canvas.width - forkSize * 2),  // FIXED
@@ -389,10 +403,11 @@ function animateFloatingObjects(canvas, ctx) {
     ctx.save();
     ctx.translate(obj.x, obj.y);
     ctx.rotate(obj.rotation * Math.PI / 180);
-    ctx.globalAlpha = 0.7;  // 70% opacity (faint)
+    ctx.globalAlpha = 0.32;  // 32% opacity (faint)
 
 // RECOLOR: Draw in lighter cyan/blue
 ctx.globalCompositeOperation = 'source-over';
+
 
     ctx.drawImage(
       obj.img,
@@ -533,6 +548,21 @@ if (stepId === 'step-16' && floatingObjects.length > 0) {
     const progress = response.progress;
     
     console.log('📊 Progress:', stepId, Math.floor(progress * 100) + '%');
+
+        // STEP 2: Fade out blue intro overlay
+    if (stepId === 'step-2' && blueOverlay) {
+      // choose where in the step the fade happens
+      const fadeStart = 0.0;  // start fading as soon as step 2 begins
+      const fadeEnd   = 0.5;  // fully gone by ~50% through step 2
+      
+      let t = (progress - fadeStart) / (fadeEnd - fadeStart);
+      t = Math.min(1, Math.max(0, t));   // clamp 0–1
+      
+      const opacity = 1 - t;             // 1 → 0
+      blueOverlay.style.opacity = String(opacity);
+
+      
+    }
     
     // STEP 16: Update growth
     if (stepId === 'step-16' && debrisReveal && debrisReveal.isActive) {

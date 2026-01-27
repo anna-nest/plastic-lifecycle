@@ -56,6 +56,18 @@ strong {
   text-align: center;
 }
 
+/* ===== BLUE INTRO OVERLAY ===== */
+.blue-overlay {
+  position: fixed;
+  inset: 0;                /* top/right/bottom/left: 0 */
+  background: #91d8fa;     /* bright blue */
+  pointer-events: none;    /* don't block scrolling or clicking */
+  z-index: 1;              /* below plastic overlay & content (which are higher) */
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+
+
 /* ===== PLASTIC OVERLAY (scrolls away) ===== */
 .plastic-overlay {
   position: absolute;
@@ -77,8 +89,30 @@ strong {
   object-fit: cover;
   object-position: bottom right;
   transform: translateY(-50px); 
-  opacity: 0.85;
+  opacity: 0.95;
 }
+
+.plastic-headline {
+  position: absolute;
+  top: 20%;              /* adjust up/down as you like */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 11;           /* above the bag image (overlay is z=10) */
+width: 100%;
+  padding: 0 2rem;
+}
+
+.plastic-headline h1 {
+  font-family:'Poppins', sans-serif;
+  font-weight: 700;
+    font-size: clamp(2.4rem, 5vw + 1rem, 4rem);
+  line-height: 1.1;
+  color: #000000;        /* or #ffffff if you want it lighter */
+    margin-left: auto;
+  margin-right: auto;
+}
+
 
 /* ===== INTRO SECTION (STEPS 0-1) ===== */
 .intro-wrapper {
@@ -218,7 +252,7 @@ strong {
 
 .comparison-visual {
   width: auto;
-  height: 45vh;  /* 1/4 of ~100vh heap height */
+  height: 50vh;  /* 1/4 of ~100vh heap height */
   margin: 2rem 0;
 }
 
@@ -363,7 +397,8 @@ strong {
 
 /* ===== STEP 13: OCEAN TRANSITION ===== */
 .ocean-transition-section {
-  min-height: 150vh;
+  min-height: 120vh;
+  margin-top: -150vh; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -423,7 +458,7 @@ strong {
 .projection-section,
 .solution-section
  {
-  min-height: 150vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -484,7 +519,8 @@ strong {
 }
 
 .final-cta {
-  min-height: 100vh;
+  min-height: 90vh;
+  margin-top: -30vh; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -500,7 +536,7 @@ strong {
 .reuse-logo {
   width: 100%;
   height: auto;
-   margin: 3rem auto;
+   margin: 2rem auto;
   max-width: 300px;
   display: block;      /* ADD THIS */
   min-width: 100px;    /* ADD THIS - ensure minimum size */
@@ -511,7 +547,7 @@ strong {
 
 .cta-button {
   display: inline-block;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   padding: 1rem 3rem;
   background: #003c64;
   color: white;
@@ -556,6 +592,11 @@ strong {
   .heap-step,
   .alluvial-step {
     padding-left: 4%;
+  }
+
+  .ocean-transition-section {
+   margin-top: -100vh; 
+
   }
   
 }
@@ -692,15 +733,17 @@ strong {
   .plastic-image {
     width: 150vw;
     height: 150vh;
-    transform: translateY(-60px) translateX(50px); /* Move right 50px, adjust as needed */
+    transform: scale(0.8)     /* zoom out */
+    translateY(25vh) translateX(35vw); /* Move right 100px, adjust as needed */;
+
   }
 
   .scroll-cue .arrow {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .scroll-cue p {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
  }
   
   /* Production */
@@ -880,26 +923,23 @@ strong {
   #step-12 .text-container-right {
   margin-top: 3vh;
 }
+
+
+.ocean-transition-section {
+    margin-top: -50vh; 
+}
+
     .solution-section {
     min-height: 80vh;
   }
   
-  .projection-section,
-  .final-cta {
-    min-height: 100vh;  /* Reduced from 150vh */
-  }
   
+  .projection-section {
+    min-height: 100vh;  
+    margin-top: -10vh; 
+      }
   
-  /* Final section */
-  .final-two-columns {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  .final-right {
-    flex: 0 0 150px;
-  }
-  
+
   .reuse-logo {
     max-width: 150px;
   }

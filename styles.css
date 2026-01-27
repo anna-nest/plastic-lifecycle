@@ -930,15 +930,20 @@ width: 100%;
 }
 
     .solution-section {
-    min-height: 80vh;
+    min-height: 100vh;
   }
   
   
   .projection-section {
     min-height: 100vh;  
-    margin-top: -10vh; 
+    margin-top: -5vh; 
       }
   
+  .transition-section {
+       margin-top: -40vh; 
+      }
+  
+      
 
   .reuse-logo {
     max-width: 150px;

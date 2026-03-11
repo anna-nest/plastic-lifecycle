@@ -766,8 +766,8 @@ width: 100%;
   .plastic-image {
     width: 150vw;
     height: 150vh;
-    transform: scale(0.85)     /* zoom out */
-    translateY(-5vh) translateX(35vw); 
+    transform: scale(0.8)     /* zoom out */
+    translateY(-15vh) translateX(35vw); 
 
   }
 

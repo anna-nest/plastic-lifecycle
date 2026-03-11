@@ -767,7 +767,7 @@ width: 100%;
     width: 150vw;
     height: 150vh;
     transform: scale(0.8)     /* zoom out */
-    translateY(-5vh) translateX(35vw); 
+    translateY(5vh) translateX(35vw); 
 
   }
 

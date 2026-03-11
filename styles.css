@@ -96,7 +96,7 @@ strong {
   height: 110vh;
   object-fit: cover;
   object-position: bottom right;
-  transform: translateY(-100px); 
+  transform: translateY(-0px); 
   opacity: 0.95;
 }
 
@@ -767,7 +767,7 @@ width: 100%;
     width: 150vw;
     height: 150vh;
     transform: scale(0.8)     /* zoom out */
-    translateY(25vh) translateX(35vw); /* Move right 100px, adjust as needed */;
+    translateY(5vh) translateX(35vw); /* Move right 100px, adjust as needed */;
 
   }
 

@@ -69,6 +69,8 @@ class DebrisReveal {
       .attr('cy', centerY)
       .attr('r', initialRadius)
       .attr('fill', 'url(#feather-gradient)');
+
+
     
     // Create rotating group
     this.textureGroup = this.svg.append('g');
@@ -87,6 +89,16 @@ class DebrisReveal {
       .attr('opacity', this.config.initialOpacity);
     
     console.log('✓ Debris reveal initialized', 'center:', centerX, centerY);
+
+    // Black overlay ABOVE the image
+this.blackBg = this.svg.append('rect')
+  .attr('x', 0)
+  .attr('y', 0)
+  .attr('width', '100%')
+  .attr('height', '100%')
+  .attr('fill', '#000')
+  .attr('opacity', 0);
+
   }
   
   start() {
@@ -162,16 +174,32 @@ class DebrisReveal {
   }
   
   updateFade(progress) {
-    // Fade from current opacity (0.7) to 0
-    const currentOpacity = this.config.maxOpacity * (1 - progress);
-    this.textureImage.attr('opacity', currentOpacity);
-    
-    if (progress >= 0.99) {
-      console.log('✓ Fade complete');
-      this.stop();
-    }
+  // Black fades in 
+  if (this.blackBg) {
+    this.blackBg.attr('opacity', progress);
   }
-  
+
+  if (progress >= 0.99) {
+    console.log('✓ Fade to black complete');
+    this.finishOnBlack();
+  }
+}
+finishOnBlack() {
+  this.isActive = false;
+  this.isFading = false;
+
+  if (this.animationId) {
+    cancelAnimationFrame(this.animationId);
+    this.animationId = null;
+  }
+
+  this.svg.style('opacity', 1);
+
+  if (this.blackBg) {
+    this.blackBg.attr('opacity', 1);
+  }
+}  
+
   stop() {
     console.log('🛑 Stopping debris reveal');
     this.isActive = false;
@@ -179,8 +207,7 @@ class DebrisReveal {
       cancelAnimationFrame(this.animationId);
       this.animationId = null;
     }
-    this.svg.style('opacity', 0);
-  }
+      }
   
   reset() {
     this.stop();
@@ -189,7 +216,12 @@ class DebrisReveal {
     this.fadeProgress = 1;
     this.maskRemoved = false;
     this.isFading = false;
-    
+   
+// Reset blcak background
+if (this.blackBg) {
+  this.blackBg.attr('opacity', 0);
+}
+
     // Reset mask and opacity
     if (this.textureImage) {
       this.textureImage

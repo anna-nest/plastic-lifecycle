@@ -524,8 +524,8 @@ width: 100%;
 }
 
 .final-cta {
-  min-height: 60vh;      /* was 90vh */
-  margin-top: -40vh;     /* slightly gentler pull-up */
+  min-height: 70vh;      
+  margin-top: -30vh;     /* slightly gentler pull-up */
   display: flex;
   flex-direction: column;
   align-items: center;

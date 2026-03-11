@@ -96,7 +96,7 @@ strong {
   height: 110vh;
   object-fit: cover;
   object-position: bottom right;
-  transform: translateY(-50px); 
+  transform: translateY(-100px); 
   opacity: 0.95;
 }
 
